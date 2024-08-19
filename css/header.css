@@ -1,0 +1,47 @@
+
+.topLeft{
+    display: flex;
+    gap: var(--m);
+}
+
+.logo{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    img{
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.topRight{
+    margin-left: auto;
+    a{
+        text-decoration: none;
+        color: black
+    }
+}
+
+.mainNavBar{
+    height: 100px;
+    ul{
+        list-style: none;
+        background-color: var(--beigegelb);
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: space-around; /*Oder space-between, dann sind die Elemente näher beieinander :)*/
+    }
+    a{
+        padding: var(--m);
+        text-align: center;
+        color: rgb(109, 83, 12);
+        display: block;
+        text-decoration: none;
+    }
+    a:hover{
+        background-color: rgb(109, 83, 12);
+        color: var(--beigegelb);
+        transition: 0.2s;
+    }
+}

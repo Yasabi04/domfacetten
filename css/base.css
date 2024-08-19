@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Rufina', serif;
+}
+
+main{
+    h2{
+        padding: var(--s);
+    }
+    p{
+        padding: var(--s);
+    }
+}
+
+a{
+    text-decoration: none;  
+}
+
+:root{
+    --3xs: 3px;
+    --2xs: 5px;
+    --xs: 8px;
+    --s: 13px;
+    --m: 21px;
+    --l: 34px;
+    --xl: 55px;
+    --xxl: 89px;
+    --3xl: 144px;
+    --4xl: 233px;
+
+    --beigegelb: #ffcf71;
+    --colognered: linear-gradient(90deg, #ff0000 0%, #ff5e00 100%);
+
+}

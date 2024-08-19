@@ -1,0 +1,100 @@
+.pageGrid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-areas: 
+    "eins eins zwei"
+    "drei vier vier"
+    "fünf fünf sechs"
+    ;
+
+    div{
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+}
+
+.product1{
+    grid-area: eins;
+    
+}
+
+.text1{
+    grid-area: zwei;
+    display: flex;
+    flex-direction: column;
+}
+
+.text2{
+    grid-area: drei;
+    display: flex;
+    flex-direction: column;
+}
+
+.product4{
+    grid-area: vier;
+    padding-top: var(--m);
+    padding-bottom: var(--m);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product5{
+    grid-area: fünf;
+}
+
+.text3{
+    grid-area: sechs;
+    display: flex;
+    flex-direction: column;
+}
+
+.text1, .text2, .text3{
+    position: relative;
+    border: var(--xs) solid var(--beigegelb);
+    .ctaButton{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        padding: var(--s);
+        margin: var(--xs);
+        background-color: black;
+        font-size: larger;
+        color: var(--beigegelb);
+        border: none;
+        border-radius: var(--xs);
+    }
+    .ctaButton:hover{
+        background-color: var(--beigegelb);
+        color: black;
+        transition: 0.1s;
+    }
+}
+
+.circle{
+    width: 300px;
+    height: 300px;
+    border-radius: 150px;
+}
+
+#c1{
+    background-color: var(--beigegelb);
+}
+
+#c2{
+    background-color: red;
+    transform: translateX(50px);
+}
+
+#c3{
+    background-color: blue;
+    transform: translateX(40px);
+    img{
+        height: 300px;
+        width: 300px;
+        border-radius: 150px;
+        transform: translateX(40px);
+    }
+}
