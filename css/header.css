@@ -1,29 +1,4 @@
-
-.topLeft{
-    display: flex;
-    gap: var(--m);
-}
-
-.logo{
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    img{
-        max-width: 100%;
-        height: auto;
-    }
-}
-
-.topRight{
-    margin-left: auto;
-    a{
-        text-decoration: none;
-        color: black
-    }
-}
-
 .mainNavBar{
-    height: 100px;
     ul{
         list-style: none;
         background-color: var(--beigegelb);
