@@ -1,3 +1,18 @@
+.news{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: var(--xs);
+    color: white;
+    background: var(--colognered);
+    cursor: pointer;
+    width: 1vl;
+}
+
+
+
+
+
 .pageGrid{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -17,7 +32,8 @@
 
 .product1{
     grid-area: eins;
-    
+    height: 450px;
+    overflow: hidden;  
 }
 
 .text1{
