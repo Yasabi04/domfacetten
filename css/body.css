@@ -104,7 +104,7 @@
     border: var(--xs) solid var(--beigegelb);
     .ctaButton{
         position: absolute;
-        right: 0;
+        left: 0;
         bottom: 0;
         padding: var(--s);
         margin: var(--xs);

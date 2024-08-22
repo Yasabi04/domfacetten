@@ -1,19 +1,17 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Aktuelle Seite aus der URL extrahieren
-    var currentPage = window.location.pathname.split("/").pop().replace(".html", "");
-    
-    // Wenn die Seite leer ist (z.B. "/"), setzen wir sie auf "index"
-    if (currentPage === "") {
-        currentPage = "index";
+document.addEventListener('scroll', function() {
+    const footer = document.querySelector('footer');
+    const cookieButton = document.querySelector('.buyMeACookie');
+    const footerRect = footer.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    // Wenn der Footer in Sicht ist
+    if (footerRect.top <= windowHeight) {
+        cookieButton.style.bottom = `${footerRect.height + 20}px`; // 20px Abstand zum Footer
+    } else {
+        cookieButton.style.bottom = '10px'; // Zurück zur ursprünglichen Position
     }
-    
-    // Alle Links in der Navigation durchgehen
-    var navLinks = document.querySelectorAll('.mainNavBar a');
-    navLinks.forEach(function(link) {
-        // Wenn das data-page Attribut mit der aktuellen Seite übereinstimmt
-        if (link.getAttribute('data-page') === currentPage) {
-            // Füge die Klasse 'current-page' hinzu
-            link.classList.add('current-page');
-        }
-    });
+});
+
+document.querySelector('.buyMeACookie').addEventListener('click', function() {
+        window.open('https://www.paypal.com/paypalme/Yasabi911', '_blank');      
 });
