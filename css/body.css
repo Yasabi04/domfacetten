@@ -1,15 +1,28 @@
 .news{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    padding: var(--xs);
     color: white;
-    background: var(--colognered);
-    cursor: pointer;
-    width: 1vl;
+    display: inline-block;
+    white-space: nowrap;
+    animation: ticker 20s linear infinite;
 }
 
+.newsContainer{
+    width: 100%;
+    overflow: hidden;
+    background-color: red; /* Hintergrundfarbe für das gesamte Band */
+    padding: var(--xs);
+    box-sizing: border-box;
+    white-space: nowrap;
+    position: relative;
+}
 
+@keyframes ticker {
+    0% {
+        transform: translateX(170%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
 
 
 
