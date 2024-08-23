@@ -32,9 +32,11 @@
     grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
     grid-template-areas: 
     "eins eins zwei"
+    "greeting greeting greeting"
     "drei vier vier"
     "fünf fünf sechs"
     ;
+    row-gap: 20px;;
 
     div{
         justify-content: center;
@@ -71,6 +73,12 @@
     grid-area: zwei;
     display: flex;
     flex-direction: column;
+}
+
+.greeting{
+    /*TODO*/
+    grid-area: greeting;
+    background-color: white;
 }
 
 .text2{

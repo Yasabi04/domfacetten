@@ -12,6 +12,38 @@ document.addEventListener('scroll', function() {
     }
 });
 
+/*
 document.querySelector('.buyMeACookie').addEventListener('click', function() {
-        window.open('https://www.paypal.com/paypalme/Yasabi911', '_blank');      
+        window.open('https://www.paypal.com/paypalme/Yasabi911', '_blank');
+});
+*/
+
+document.getElementById("createDivButton").addEventListener("click", function() {
+    // Überprüfen, ob das Div bereits existiert
+    if (!document.getElementById("centeredDiv")) {
+        // Erstelle das neue Div-Element
+        const div = document.createElement("div");
+        div.id = "centeredDiv";
+        div.innerHTML = `
+            <p>Hallo, ich würde mich über eine kleine Spende sehr freuen!</p>
+            <button id="yesButton">Akzeptieren</button>
+            <button id="noButton">Ablehnen</button>
+        `;
+        div.style.display = "block";
+
+        // Füge das Div zum Body hinzu
+        document.body.appendChild(div);
+
+        // Event-Listener für die Buttons hinzufügen
+        document.getElementById("yesButton").addEventListener("click", function() {
+            window.open('https://www.paypal.com/paypalme/Yasabi911', '_blank');
+            document.body.removeChild(div);
+        });
+
+        document.getElementById("noButton").addEventListener("click", function() {
+            document.body.removeChild(div);
+        });
+    } else {
+        document.body.removeChild(document.getElementById("centeredDiv"));
+    }
 });
