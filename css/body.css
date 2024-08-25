@@ -32,7 +32,7 @@
     grid-template-rows: repeat(auto-fit, minmax(300px, 1fr));
     grid-template-areas: 
     "greeting greeting greeting"
-    "eins eins zwei"
+    "zwei eins eins"
     "drei vier vier"
     "fünf fünf sechs"
     ;
@@ -66,7 +66,6 @@
       transform-origin: right bottom;
     }
   }
-  
 
 .text1{
     grid-area: zwei;
@@ -113,19 +112,20 @@
 }
 
 .product5{
-    grid-area: fünf;
+    grid-area: fünf;          
 }
 
 .text3{
     grid-area: sechs;
     display: flex;
     flex-direction: column;
+    height: 500px;
 }
 
 .text1, .text2, .text3{
     position: relative;
     background-color: white;
-    border: var(--xs) solid var(--beigegelb);
+    border: var(--2xs) solid var(--beigegelb);
     .ctaButton{
         position: absolute;
         left: 0;

@@ -3,11 +3,18 @@
     padding: 0;
 }
 
+header{
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
 body{
     font-family: 'Rufina', serif;
 }
 
 main{
+    padding-top: var(--xxl);
     h2{
         padding: var(--s);
     }

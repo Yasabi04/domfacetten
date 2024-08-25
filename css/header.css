@@ -13,10 +13,11 @@
         color: rgb(109, 83, 12);
         display: flex;
         text-decoration: none;
+        font-size: var(--m);
+        font-weight: 800;
     }
     a:hover{
         color: var(--beigegelb);
         background-color: rgb(109, 83, 12);
     }
-
 }
