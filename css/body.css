@@ -78,20 +78,27 @@
     grid-area: greeting;
     background-color: white;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     img{
         width: 35%;
         display: block;
     }
-    p{
-        padding-bottom: var(--l);
-    }
     hr {
         border: none;
-        height: 2px;
-        background-color: #f1d694;
-        width: 90%;
-        margin: var(--m);
+        height: 1%;
+        background-color: var(--beigegelb);
+        width: 10%;
+        transform: rotate(90deg);
+      }
+
+      .welcomeText{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        h1{
+            padding: var(--s);
+        }
       }
       
 }
@@ -112,14 +119,17 @@
 }
 
 .product5{
-    grid-area: fünf;          
+    grid-area: fünf; 
+    img{
+        width: 100%;
+    }     
 }
 
 .text3{
     grid-area: sechs;
     display: flex;
     flex-direction: column;
-    height: 500px;
+    height: auto;
 }
 
 .text1, .text2, .text3{

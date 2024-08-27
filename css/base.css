@@ -14,7 +14,7 @@ body{
 }
 
 main{
-    padding-top: var(--xxl);
+    padding-top: var(--l);
     h2{
         padding: var(--s);
     }

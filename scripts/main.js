@@ -25,7 +25,7 @@ document.getElementById("createDivButton").addEventListener("click", function() 
         const div = document.createElement("div");
         div.id = "centeredDiv";
         div.innerHTML = `
-            <p>Hallo, ich würde mich über eine kleine Spende sehr freuen!</p>
+            <p>Hi, mein Name ist Yassin! Ich bin 20 Jahre, Student und habe diesen Shop alleine aufgesetzt :) Ich würde mich über eine kleine Spende freuen!</p>
             <button id="yesButton">Akzeptieren</button>
             <button id="noButton">Ablehnen</button>
         `;
