@@ -33,8 +33,8 @@
     grid-template-areas: 
     "greeting greeting greeting"
     "zwei eins eins"
-    "drei vier vier"
-    "fünf fünf sechs"
+    "vier vier drei"
+    "sechs fünf fünf"
     ;
 
     div{
@@ -45,14 +45,16 @@
 }
 
 .product1{
+    height: 80vh;
     grid-area: eins;
-    height: 500px;
     overflow: hidden;  
-    animation: product1 8s ease-in-out both;
-    z-index: -1;
+    z-index: 0;
+    position: relative;
     img{
-        flex: 1;
-        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        animation: product1 10s ease both;
     }
 }
 
@@ -62,7 +64,7 @@
       transform-origin: 84% 84%;
     }
     100% {
-      transform: scale(1.25) translate(20px, 15px);
+      transform: scale(1.1) translate(20px, 15px);
       transform-origin: right bottom;
     }
   }
@@ -83,6 +85,7 @@
         width: 35%;
         display: block;
     }
+    
     hr {
         border: none;
         height: 1%;
@@ -157,4 +160,43 @@
 
 .product1, .product4, .product5{
     background-color: white;
+}
+
+
+
+
+
+
+
+
+/*Alle Produkte*/
+
+
+
+
+
+
+
+
+
+
+.productOverview{
+    padding: var(--xl);
+    h1{
+        padding: var(--xs);
+        font-size: var(--l);
+        font-style: italic;
+        color: rgb(109, 83, 12)
+    }
+    hr{
+        border: 1px solid var(--beigegelb);
+        background-color: var(--beigegelb);
+        margin-bottom: var(--m);
+    }    
+}
+
+.productCard{
+    border: 10px solid var(--beigegelb);
+    height: 100px;
+    width: 100px;
 }
