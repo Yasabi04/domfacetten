@@ -47,3 +47,5 @@ document.getElementById("createDivButton").addEventListener("click", function() 
         document.body.removeChild(document.getElementById("centeredDiv"));
     }
 });
+
+//Produkt hinzufügen

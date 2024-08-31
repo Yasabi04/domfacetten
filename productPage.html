@@ -32,13 +32,8 @@
         <section class = "productOverview">
             <h1>Alle Produkte</h1>
             <hr>
+            <div id="product-container"></div>
 
-            <article class = "productCard">
-                <img src="" alt="">
-                <h2>Name</h2>
-                <h3>Farben</h3>
-                <h3>Preis: 3.75$</h3>
-            </article>
         </section>
     </main>
 
@@ -56,4 +51,54 @@
         </nav>
     </footer>
 </body>
+<script>
+    const csvData = `Bezeichnung;ArtNr;Preis;Farben
+        Armband;1234;3.75;ambergreen,borealis,crystalpurple
+        Armband2;097124;4.50;black,white
+        Armband3;0911;13.99;auratiumgold,technogreen,bridgeblue`;
+
+    // CSV-Daten in ein Array von Objekten parsen
+    function parseCSV(data) {
+        const lines = data.split('\n');
+        const headers = lines[0].split(';'); // Verwende hier das richtige Trennzeichen
+        return lines.slice(1).map(line => {
+            const values = line.split(';'); // Verwende auch hier das richtige Trennzeichen
+            const obj = {};
+            headers.forEach((header, index) => {
+                obj[header.trim()] = values[index]?.trim().replace(/"/g, '');
+            });
+            return obj;
+        });
+    }
+
+    // Produktkarten erstellen und in die HTML-Seite einfügen
+    function createProductCards(products) {
+        const container = document.getElementById('product-container');
+        products.forEach(product => {
+            const card = document.createElement('article');
+            card.className = 'productCard';
+
+            // Farben in ein Array umwandeln und Dropdown-Optionen erstellen
+            const colorOptions = product.Farben.split(',').map(color => `<option value="${color.trim()}">${color.trim()}</option>`).join('');
+
+            card.innerHTML = `
+                <img src="./images/bracelet1.png" alt="Produkt">
+                <h2>${product.Bezeichnung}</h2>
+                <select id="colorSelect">
+                    <option value="">Farben ansehen!</option>
+                    ${colorOptions}
+                </select>
+                <h3>Preis: ${product.Preis}$</h3>
+                <h4>Artikelnr: ${product.ArtNr}</h4>
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    // CSV-Daten parsen und Produktkarten erstellen
+    const products = parseCSV(csvData);
+    createProductCards(products);        
+</script>
+</body>
 </html>
+    
