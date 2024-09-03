@@ -48,4 +48,13 @@ document.getElementById("createDivButton").addEventListener("click", function() 
     }
 });
 
-//Produkt hinzufügen
+
+
+
+
+
+
+
+
+
+

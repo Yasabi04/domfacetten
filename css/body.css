@@ -204,6 +204,7 @@
     position: relative;
     box-shadow: grey 0px 0px 50px;
     height: 100%;
+    color: black;
     width: 320px;
     text-align: center;
     margin: var(--m);
@@ -212,8 +213,8 @@
         height: 75%;
         object-fit: cover;
     }
-    h2, h3, h4{
-        margin: var(--xs);
+    h2, h3{
+        margin-bottom: var(--xs);
     }
     h4{
         position: absolute;
@@ -221,6 +222,7 @@
         top: 0;
         color: rgb(206, 206, 206);
         font-family: Arial, Helvetica, sans-serif;
+        margin: var(--xs);
     }
     select{
         background-color: var(--beigegelb);
@@ -242,4 +244,35 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
+}
+
+
+
+
+
+/*Einzelnes Produkt begutachten*/
+
+#buyingButton{
+    font-size: var(--m);
+    padding: var(--s);
+    border: none;
+    border-radius: var(--m);
+    background-color: var(--beigegelb);
+}
+
+#buyingButton:hover{
+    background-color: var(--complBeigegelb);
+    color: var(--beigegelb);
+    transition: 0.1s;
+}
+
+#getUserInfo{
+    position: relative;
+    bottom: 0;
+    left: 0;
+    transform: translateX(50%);
+    transform: translateY(50%);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }

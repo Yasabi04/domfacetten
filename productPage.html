@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,34 +15,27 @@
 </head>
 <body>
     <header>
-        <nav class = "mainNavBar">
+        <nav class="mainNavBar">
             <ul>
                 <li><a href="index.html">Hauptseite</a></li>
                 <li><a href="productPage.html">Alle Produkte</a></li>
-                <li><a href="">Gespeichert</a></li>
+                <li><a href="me.html">Mein Bereich</a></li>
                 <li><a href="">Suche</a></li>
             </ul>
         </nav>
     </header>
 
-
-
-
     <main>
-        <section class = "productOverview">
+        <section class="productOverview">
             <h1>Alle Produkte</h1>
             <hr>
             <div id="product-container"></div>
-
         </section>
     </main>
 
-
-
-
     <footer>
         <nav>
-            <ul class = "footertext">
+            <ul class="footertext">
                 <li><a href="about.html">Über uns</a></li>
                 <li><a href="service.html">Service</a></li>
                 <li><a href="rechtliches.html">Rechtliches</a></li>
@@ -50,55 +43,53 @@
             </ul>
         </nav>
     </footer>
-</body>
-<script>
-    const csvData = `Bezeichnung;ArtNr;Preis;Farben
-        Armband;1234;3.75;ambergreen,borealis,crystalpurple
-        Armband2;097124;4.50;black,white
-        Armband3;0911;13.99;auratiumgold,technogreen,bridgeblue`;
 
-    // CSV-Daten in ein Array von Objekten parsen
-    function parseCSV(data) {
-        const lines = data.split('\n');
-        const headers = lines[0].split(';'); // Verwende hier das richtige Trennzeichen
-        return lines.slice(1).map(line => {
-            const values = line.split(';'); // Verwende auch hier das richtige Trennzeichen
-            const obj = {};
-            headers.forEach((header, index) => {
-                obj[header.trim()] = values[index]?.trim().replace(/"/g, '');
-            });
-            return obj;
+    <script>
+        // CSV-Daten in ein Array von Objekten parsen
+        function parseCSV(csv, delimiter = ',') {
+        const rows = csv.trim().split('\n');
+        const headers = rows[0].split(delimiter);
+        const data = rows.slice(1).map(row => {
+            const values = row.split(delimiter);
+            return headers.reduce((object, header, index) => {
+            object[header] = values[index];
+            return object;
+            }, {});
         });
-    }
+        return data;
+        }
 
-    // Produktkarten erstellen und in die HTML-Seite einfügen
-    function createProductCards(products) {
-        const container = document.getElementById('product-container');
-        products.forEach(product => {
-            const card = document.createElement('article');
-            card.className = 'productCard';
+        // HTML-Elemente für jedes Produkt erstellen
+        function generateHTML(products) {
+        return products.map(product => `
+            <article class="productCard" id="product-${product.ArtNr}">
+                <a href="singleProduct.html" data-product="${product.ArtNr}">
+                    <img src="${product.Foto}" alt="Produktbild von ${product.Bezeichnung}">
+                    <h2>${product.Bezeichnung}</h2>
+                    <p>Preis: ${product.Preis} €</p>
+                    <p>Farben: ${product.Farben}</p>
+                </a>
+            </article>
+        `).join('');
+        }
 
-            // Farben in ein Array umwandeln und Dropdown-Optionen erstellen
-            const colorOptions = product.Farben.split(',').map(color => `<option value="${color.trim()}">${color.trim()}</option>`).join('');
+        // CSV-Daten (Diese sollten idealerweise aus einer externen Quelle geladen werden)
+        const csvData = `Foto,Bezeichnung,ArtNr,Preis,Farben
+                    images/koelnerDom.jpg,Armband,1234,3.75,ambergreen,borealis,crystalpurple
+                    images/Logo.png,Armband2,097124,4.50,black,white
+                    images/Logo.png,Armband3,0911,13.99,auratiumgold,technogreen,bridgeblue`;
 
-            card.innerHTML = `
-                <img src="./images/bracelet1.png" alt="Produkt">
-                <h2>${product.Bezeichnung}</h2>
-                <select id="colorSelect">
-                    <option value="">Farben ansehen!</option>
-                    ${colorOptions}
-                </select>
-                <h3>Preis: ${product.Preis}$</h3>
-                <h4>Artikelnr: ${product.ArtNr}</h4>
-            `;
-            container.appendChild(card);
+        // Produkte parsen und HTML generieren
+        const products = parseCSV(csvData, ',');
+        document.getElementById('product-container').innerHTML = generateHTML(products);
+
+        document.querySelectorAll('.product').forEach(productElement => {
+            productElement.addEventListener('click', (event) => {
+            const productData = event.currentTarget.getAttribute('data-product');
+            localStorage.setItem('selectedProduct', productData);
+            alert('Produkt gespeichert: ' + productData);
         });
-    }
-
-    // CSV-Daten parsen und Produktkarten erstellen
-    const products = parseCSV(csvData);
-    createProductCards(products);        
-</script>
+        });
+    </script>
 </body>
 </html>
-    

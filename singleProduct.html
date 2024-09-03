@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domfacetten - Produktübersicht</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/body.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="icon" href="../images/smallLogo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Rufina:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class = "mainNavBar">
+            <ul>
+                <li><a href="index.html">Hauptseite</a></li>
+                <li><a href="productPage.html">Alle Produkte</a></li>
+                <li><a href="">Gespeichert</a></li>
+                <li><a href="">Suche</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <main>
+        <section class = "productOverview">
+            <h1>Produktübersicht</h1>
+            <hr>
+            <div id="singleProduct"></div>
+        </section>
+    </main>
+
+
+    <footer>
+        <nav>
+            <ul class = "footertext">
+                <li><a href="about.html">Über uns</a></li>
+                <li><a href="service.html">Service</a></li>
+                <li><a href="rechtliches.html">Rechtliches</a></li>
+                <li><a href="https://www.instagram.com/domfacetten/">Folgen Sie uns auf Instagram!</a></li>
+            </ul>
+        </nav>
+    </footer>
+    <script>
+        const artnr = localStorage.getItem('tempArtnr');
+        const preis = localStorage.getItem('tempPreis');
+        const farben = localStorage.getItem('tempFarben');
+        function loadPreferedProduct(){
+            if(artnr && preis){
+                const container = document.getElementById("singleProduct");
+                const product = document.createElement('article');
+                product.className = "shownProduct"
+                
+                product.innerHTML = `
+                    <h1>Artikelnummer: ${artnr}</h1>
+                    <h2>Preis: ${preis}</h2>
+                    <button id = "buyingButton">Jetzt bezahlen!</button>
+                `;
+                container.appendChild(product)
+            }
+            else{
+                console-log("Keine Produktinformationen gefunden :(")
+            }
+        }
+
+        loadPreferedProduct();
+
+    document.getElementById("buyingButton").addEventListener("click", function() {
+    // Überprüfen, ob das Div bereits existiert
+        if (!document.getElementById("getUserInfo")) {
+            // Erstelle das neue Div-Element
+            const div = document.createElement("article");
+            div.id = "getUserInfo";
+            div.innerHTML = `
+                <input placeholder = "E-Mail"></input>
+                <input placeholder = "Vollständiger Name"></input>
+                <input placeholder = "Straße"></input>
+                <input placeholder = "Postleitzahl"></input>
+                <input placeholder = "Ort"></input>
+                <input placeholder = "Land"></input>
+                <button>Mit Paypal bezahlen!</button>
+            `;
+
+
+            // Füge das Div zum Body hinzu
+            document.body.appendChild(div);
+        }
+    });
+
+
+    </script>
+</body>
+</html>
