@@ -204,7 +204,6 @@
     position: relative;
     box-shadow: grey 0px 0px 50px;
     height: 100%;
-    color: black;
     width: 320px;
     text-align: center;
     margin: var(--m);
@@ -213,16 +212,12 @@
         height: 75%;
         object-fit: cover;
     }
-    h2, h3{
-        margin-bottom: var(--xs);
-    }
     h4{
         position: absolute;
         left: 0;
         top: 0;
         color: rgb(206, 206, 206);
         font-family: Arial, Helvetica, sans-serif;
-        margin: var(--xs);
     }
     select{
         background-color: var(--beigegelb);
@@ -231,6 +226,16 @@
         border: none;
         border-radius: var(--xs);
         font-size: var(--s);
+    }
+    a{
+        color: inherit;
+    }
+    span{
+        position: absolute;
+        top: 0;
+        right: var(--s);
+        font-size: var(--xl);
+        color: var(--beigegelb);
     }
 }
 

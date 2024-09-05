@@ -20,7 +20,7 @@
                 <li><a href="index.html">Hauptseite</a></li>
                 <li><a href="productPage.html">Alle Produkte</a></li>
                 <li><a href="me.html">Mein Bereich</a></li>
-                <li><a href="">Suche</a></li>
+                <li><a><span class = "searchSymbol">&#9935;</span></a></li>
             </ul>
         </nav>
     </header>
@@ -30,6 +30,7 @@
             <h1>Alle Produkte</h1>
             <hr>
             <div id="product-container"></div>
+            <hr>
         </section>
     </main>
 
@@ -65,10 +66,13 @@
             <article class="productCard" id="product-${product.ArtNr}">
                 <a href="singleProduct.html" data-product="${product.ArtNr}">
                     <img src="${product.Foto}" alt="Produktbild von ${product.Bezeichnung}">
+                </a>
+                    <abbr title="Produkt speichern">
+                        <span class = "star">&#9733;</span>
+                    </abbr>
                     <h2>${product.Bezeichnung}</h2>
                     <p>Preis: ${product.Preis} €</p>
                     <p>Farben: ${product.Farben}</p>
-                </a>
             </article>
         `).join('');
         }
@@ -90,6 +94,25 @@
             alert('Produkt gespeichert: ' + productData);
         });
         });
+
+        document.querySelectorAll('.searchSymbol').forEach(element => {
+            element.addEventListener('click', () => {
+            if (!document.getElementById("searchBar")) {
+                // Erstelle das neue Div-Element
+                const searchElement = document.createElement("div");
+                searchElement.id = "searchBar";
+                searchElement.innerHTML = `
+                    <input placeholder="Suche"></input>
+                    <span>&#9935;</span>
+                `;
+                searchElement.style.display = "block";
+                // Füge das Div zum Body hinzu
+                document.body.appendChild(searchElement);
+            } else {
+                document.body.removeChild(document.getElementById("searchBar"));
+            }
+            });
+    });
     </script>
 </body>
 </html>

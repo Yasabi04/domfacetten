@@ -14,10 +14,35 @@
         display: flex;
         text-decoration: none;
         font-size: var(--m);
-        font-weight: 800;
+        font-weight: 900;
+    }
+    span{
+        cursor: pointer;
     }
     a:hover{
-        color: var(--beigegelb);
-        background-color: rgb(109, 83, 12);
+        text-decoration: underline;
     }
+    span:hover{
+        text-decoration: none;
+        scale: 1.5;
+        transition: 0.2s;
+    }
+}
+
+#searchBar{
+    display: flex;
+    position:absolute;
+    top: 71px;
+    right: 0;
+    justify-content: center;
+    padding: var(--m);
+    input{
+        padding: var(--s);
+        font-size: var(--m);
+        border: none;
+        border-radius: var(--xs);
+        background-color: var(--beigegelb);
+        border-color: var(--beigegelb);
+    }
+
 }

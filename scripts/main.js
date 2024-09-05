@@ -12,12 +12,6 @@ document.addEventListener('scroll', function() {
     }
 });
 
-/*
-document.querySelector('.buyMeACookie').addEventListener('click', function() {
-        window.open('https://www.paypal.com/paypalme/Yasabi911', '_blank');
-});
-*/
-
 document.getElementById("createDivButton").addEventListener("click", function() {
     // Überprüfen, ob das Div bereits existiert
     if (!document.getElementById("centeredDiv")) {
@@ -47,14 +41,3 @@ document.getElementById("createDivButton").addEventListener("click", function() 
         document.body.removeChild(document.getElementById("centeredDiv"));
     }
 });
-
-
-
-
-
-
-
-
-
-
-
