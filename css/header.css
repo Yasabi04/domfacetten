@@ -1,38 +1,41 @@
 .mainNavBar{
-    ul{
+    border-bottom: 2px solid var(--beigegelb);
+    padding: var(--m);
+    background-color: white;
+    .navList{
+        display: flex;
         list-style: none;
-        background-color: var(--beigegelb);
-        padding: 0;
-        margin: 0;
-        display: flex;
-        justify-content: space-around; /*Oder space-between, dann sind die Elemente näher beieinander :)*/
-    }
-    a{
-        padding: var(--m);
-        text-align: center;
-        color: rgb(109, 83, 12);
-        display: flex;
-        text-decoration: none;
-        font-size: var(--m);
-        font-weight: 900;
-    }
-    span{
-        cursor: pointer;
-    }
-    a:hover{
-        text-decoration: underline;
-    }
-    span:hover{
-        text-decoration: none;
-        scale: 1.5;
-        transition: 0.2s;
+        a{
+            position: relative;
+            font-size: var(--m);
+            text-decoration: none;
+            color: black;
+        }
+        a::after{
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px; /* Abstand der Linie vom Text */
+            width: 0;
+            height: 2px; /* Dicke der Linie */
+            background-color: black; /* Farbe der Linie */
+            transition: width 0.3s ease; /* Geschwindigkeit der Linie */
+        }
+        a:hover::after{
+            width: 100%;
+        }
+        li{
+            margin-right: var(--l);
+        }
+        li:nth-child(4){
+            margin-left: auto;
+        }
     }
 }
 
 #searchBar{
     display: flex;
     position:absolute;
-    top: 71px;
     right: 0;
     justify-content: center;
     padding: var(--m);
@@ -44,5 +47,4 @@
         background-color: var(--beigegelb);
         border-color: var(--beigegelb);
     }
-
 }
