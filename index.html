@@ -22,7 +22,6 @@
                 <li><a href="index.html">Hauptseite</a></li>
                 <li><a href="productPage.html">Alle Produkte</a></li>
                 <li><a href="me.html">Mein Bereich</a></li>
-                <li><span class="searchSymbol"><i class="fas fa-search"></i></span></li>
                 <li><span class="userSymbol"><i class="fa-regular fa-user"></i></span></li>
             </ul>
         </nav>
@@ -59,8 +58,8 @@
                 </div>
             </div>
             <div class = "text2">
-                <h2>Überschrift</h2>
-                <p>Tauche ein in die zauberhafte Welt unsterblicher Liebe und schillernder Schönheit – wo jeder Blick auf dein Handgelenk zu einem himmlischen Augenschmaus wird! ✨✨ Dieses Armband ist nicht einfach nur Schmuck – es ist eine Symphonie der Gefühle, eine Explosion aus purer Harmonie und sanftem Glitzern, wie ein Regenbogen, der sich zärtlich um deine Seele schmiegt. </p>
+                <h2>Around the world!</h2>
+                <p>Unsere Produkte sind auf der ganzen Welt unterwegs!</p>
                 <button class = "ctaButton">Zum Produkt!</button>
             </div>
             <div class = "product4">
@@ -93,31 +92,6 @@
             </ul>
         </nav>
     </footer>
-    <script>
-        document.querySelector('.searchSymbol').addEventListener('click', () => {
-        // Erstelle das Input-Feld dynamisch
-        const input = document.createElement('input');
-        input.type = 'text';
-        input.placeholder = 'Suche...';
-        input.classList.add('search-input');
-
-        // Finde das Listenelement mit der Suchlupe
-        const searchIcon = document.querySelector('.searchSymbol');
-        //Mit parentNode wirr das Elternelement von searchSymbols gesucht und gefunden
-        const parentLi = searchIcon.parentNode;
-
-        // Ersetze das Symbol mit dem Input-Feld
-        parentLi.replaceChild(input, searchIcon);
-
-        // Setze Fokus auf das Input-Feld
-        input.focus();
-
-        // Optional: Wenn der Benutzer aus dem Input-Feld herausklickt, wieder zur Lupe wechseln
-        input.addEventListener('blur', function() {
-            parentLi.replaceChild(searchIcon, input);
-        });
-    });
-    </script>
     <script src = "./scripts/main.js"></script>
 </body>
 </html>

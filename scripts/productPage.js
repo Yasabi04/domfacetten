@@ -1,53 +1,65 @@
-const csvData = `
-Bezeichnung;ArtNr;Preis;Farben
-Armband;1234;3.75;ambergreen,borealis,crystalpurple
-Armband2;097124;4.50;black,white
-Armband3;0911;13.99;auratiumgold,technogreen,bridgeblue
-`;
-
-// CSV-Daten in ein Array von Objekten parsen
-function parseCSV(data) {
-const lines = data.split('\n');
-const headers = lines[0].split(';'); // Verwende hier das richtige Trennzeichen
-return lines.slice(1).map(line => {
-    const values = line.split(';'); // Verwende auch hier das richtige Trennzeichen
-    const obj = {};
-    headers.forEach((header, index) => {
-        obj[header.trim()] = values[index]?.trim().replace(/"/g, '');
+function parseCSV(csv, delimiter = ',') {
+    const rows = csv.trim().split('\n');
+    const headers = rows[0].split(delimiter);
+    const data = rows.slice(1).map(row => {
+        const values = row.split(delimiter);
+        return headers.reduce((object, header, index) => {
+        object[header] = values[index];
+        return object;
+        }, {});
     });
-    return obj;
-});
-}
+    return data;
+    }
 
-// Produktkarten erstellen und in die HTML-Seite einfügen
-function createProductCards(products) {
-const container = document.getElementById('product-container');
-products.forEach(product => {
-    const card = document.createElement('article');
-    card.className = 'productCard';
+    // HTML-Elemente für jedes Produkt erstellen
+    function generateHTML(products) {
+    return products.map(product => `
+        <article class="productCard" id="product-${product.ArtNr}">
+            <a href="singleProduct.html" data-product="${product.ArtNr}">
+                <img src="${product.Foto}" alt="Produktbild von ${product.Bezeichnung}">
+            </a>
+                <abbr title="Produkt speichern">
+                    <span class = "star"><i class="fa-regular fa-star"></i></span>
+                </abbr>
+                <h2>${product.Bezeichnung}</h2>
+                <p>Preis: ${product.Preis} €</p>
+                <p>Farben: ${product.Farben}</p>
+        </article>
+    `).join('');
+    }
 
-    // Farben in ein Array umwandeln und Dropdown-Optionen erstellen
-    const colorOptions = product.Farben.split(',').map(color => `<option value="${color.trim()}">${color.trim()}</option>`).join('');
+    // CSV-Daten (Diese sollten idealerweise aus einer externen Quelle geladen werden)
+    const csvData = `Foto,Bezeichnung,ArtNr,Preis,Farben
+                images/koelnerDom.jpg,Armband,1234,3.75,ambergreen,borealis,crystalpurple
+                images/Logo.png,Armband2,097124,4.50,black,white
+                images/Logo.png,Armband3,0911,13.99,auratiumgold,technogreen,bridgeblue`;
 
-    card.innerHTML = `
-        <a href="singleProduct.html">
-            <img src="./images/bracelet1.png" alt="Produkt">
-            <h2>${product.Bezeichnung}</h2>
-            <h3>Preis: ${product.Preis}$</h3>
-            <h4>Artikelnr: ${product.ArtNr}</h4>
-        </a>
-    `;
-    container.appendChild(card);
-    document.getElementsByClassName('productCard').addEventListener("click", function(){
-        bezeichnung = product.Bezeichnung
-        preis = product.Preis
-        artnr = product.ArtNr
-        farben = product.Farben
-        console.log(artnr)
+    // Produkte parsen und HTML generieren
+    const products = parseCSV(csvData, ',');
+    document.getElementById('product-container').innerHTML = generateHTML(products);
+
+    document.querySelectorAll('.product').forEach(productElement => {
+        productElement.addEventListener('click', (event) => {
+        const productData = event.currentTarget.getAttribute('data-product');
+        localStorage.setItem('selectedProduct', productData);
+        alert('Produkt gespeichert: ' + productData);
     });
-});
-}
+    });
 
-// CSV-Daten parsen und Produktkarten erstellen
-const products = parseCSV(csvData);
-createProductCards(products);
+    document.querySelectorAll(".star").forEach(starElement => {
+        starElement.addEventListener('click', (event) => {
+            if(event.currentTarget.innerHTML === '<i class="fa-regular fa-star"></i>') {
+                // Ändere zu ausgefülltem Stern
+                event.currentTarget.innerHTML = '<i class="fa-solid fa-star"></i>';
+                //Hinzugefügt: Speichere die Produktdaten in localStorage
+                const productData = event.currentTarget.getAttribute('data-product');
+                localStorage.setItem('selectedProduct', productData);
+                console.log('Produkt gespeichert: ' + productData);
+                
+            } else {
+                // Ändere zu regulärem Stern
+                event.currentTarget.innerHTML = '<i class="fa-regular fa-star"></i>';
+            }
+        });
+    });
+    

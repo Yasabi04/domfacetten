@@ -12,32 +12,39 @@ document.addEventListener('scroll', function() {
     }
 });
 
-document.getElementById("createDivButton").addEventListener("click", function() {
-    // Überprüfen, ob das Div bereits existiert
-    if (!document.getElementById("centeredDiv")) {
-        // Erstelle das neue Div-Element
-        const div = document.createElement("div");
-        div.id = "centeredDiv";
-        div.innerHTML = `
-            <p>Hi, mein Name ist Yassin! Ich bin 20 Jahre, Student und habe diesen Shop alleine aufgesetzt :) Ich würde mich über eine kleine Spende freuen!</p>
-            <button id="yesButton">Akzeptieren</button>
-            <button id="noButton">Ablehnen</button>
-        `;
-        div.style.display = "block";
+document.querySelector('.searchSymbol').addEventListener('click', () => {
+    // Erstelle das Input-Feld dynamisch
+    const input = document.createElement('input');
+    input.id = "inputSearchField"
+    input.type = 'text';
+    input.placeholder = 'Suche...';
 
-        // Füge das Div zum Body hinzu
-        document.body.appendChild(div);
+    // Finde das Listenelement mit der Suchlupe
+    const searchIcon = document.querySelector('.searchSymbol');
+    //Mit parentNode wird das Elternelement von searchSymbols gesucht und gefunden
+    const parentLi = searchIcon.parentNode;
 
-        // Event-Listener für die Buttons hinzufügen
-        document.getElementById("yesButton").addEventListener("click", function() {
-            window.open('https://www.paypal.com/paypalme/Yasabi911', '_blank');
-            document.body.removeChild(div);
+    // Ersetze das Symbol mit dem Input-Feld
+    parentLi.replaceChild(input, searchIcon);
+
+    // Setze Fokus auf das Input-Feld. Ist optional, aber sorgt dafür, dass der Benutzer direkt loslegen kann
+    input.focus();
+
+    // Optional: Wenn der Benutzer aus dem Input-Feld herausklickt, wieder zur Lupe wechseln
+    input.addEventListener('blur', function() {
+        parentLi.replaceChild(searchIcon, input);
+    });
+    inputSearchField.addEventListener('input', function() {
+        const searchValue = inputSearchField.value.toLowerCase();
+        const products = document.querySelectorAll('.productCard');
+
+        products.forEach(product => {
+            const productName = product.querySelector('h2').textContent.toLowerCase();
+            if (productName.includes(searchValue)) {
+                product.style.display = 'block';
+            } else {
+                product.style.display = 'none';
+            }
         });
-
-        document.getElementById("noButton").addEventListener("click", function() {
-            document.body.removeChild(div);
-        });
-    } else {
-        document.body.removeChild(document.getElementById("centeredDiv"));
-    }
+    });
 });
