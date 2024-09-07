@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,12 +34,26 @@
             <hr>
             <h1>Meine Bestellungen</h1>
             <hr>
-                <section class = "ordered"></section>
+                <section class = "ordered">
+
+                </section>
             <hr>
         </section>
         
     </main>
     <footer></footer>
     <script src = "./scripts/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const safedItems = localStorage.getItem('safedProductList');
+            const div = document.createElement('div');
+            div.innerHTML = `
+                <h2>Gespeicherte Produkte</h2>
+                <ul>
+                    ${safedItems}
+                </ul>
+            `;
+        });
+    </script>
 </body>
 </html>

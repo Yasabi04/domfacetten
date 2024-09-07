@@ -1,3 +1,6 @@
+let safedProductList = [];
+localStorage.setItem('safedProductList', JSON.stringify(safedProductList));
+
 function parseCSV(csv, delimiter = ',') {
     const rows = csv.trim().split('\n');
     const headers = rows[0].split(delimiter);
@@ -17,6 +20,7 @@ function parseCSV(csv, delimiter = ',') {
         <article class="productCard" 
             id="product-${product.ArtNr}" 
             data-artnr="${product.ArtNr}"
+            data-farben="${product.Farben}"
             data-preis="${product.Preis}"
             data-bezeichnung="${product.Bezeichnung}"
             data-foto="${product.Foto}">
@@ -59,25 +63,33 @@ function parseCSV(csv, delimiter = ',') {
 
     document.querySelectorAll(".star").forEach(starElement => {
         starElement.addEventListener('click', (event) => {
-            if(event.currentTarget.innerHTML === '<i class="fa-regular fa-star"></i>') {
+            if (event.currentTarget.innerHTML === '<i class="fa-regular fa-star"></i>') {
                 // Ändere zu ausgefülltem Stern
                 event.currentTarget.innerHTML = '<i class="fa-solid fa-star"></i>';
+    
                 // Produktinformationen direkt aus HTML Code holen
                 const productCard = event.currentTarget.closest('.productCard');
                 const productData = {
                     artnr: productCard.getAttribute('data-artnr'),
                     preis: productCard.getAttribute('data-preis'),
                     bezeichnung: productCard.getAttribute('data-bezeichnung'),
-                    foto: productCard.getAttribute('data-foto')
+                    farben: productCard.getAttribute('data-farben'),
+                    foto: productCard.getAttribute('data-foto'),
+                    datum: new Date().toISOString() // Datum als ISO-String speichern
                 };
-                console.log('Produktinformationen: ' + productData.artnr);
-                localStorage.setItem('safedProduct', JSON.stringify(productData));
+    
+                // Überprüfe, ob die Daten korrekt sind
+                console.log('Produktinformationen:', productData);
+                safedProductList.push(productData);
             } else {
                 // Ändere zu regulärem Stern
                 event.currentTarget.innerHTML = '<i class="fa-regular fa-star"></i>';
-                console.log('Produktinformationen aus Mein Bereich gelöscht' + localStorage.getItem('safedProduct'));
+    
+                // Entferne die gespeicherten Daten
                 localStorage.removeItem('safedProduct');
+                console.log('Produktinformationen aus Mein Bereich gelöscht');
             }
         });
     });
+    
     
