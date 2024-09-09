@@ -1,21 +1,13 @@
-let safedProductList = [];
-localStorage.setItem('safedProductList', JSON.stringify(safedProductList));
+// Hole das gespeicherte Produkt-Array aus dem localStorage
+let safedProductList = JSON.parse(localStorage.getItem('safedProductList')) || [];
 
-function parseCSV(csv, delimiter = ',') {
-    const rows = csv.trim().split('\n');
-    const headers = rows[0].split(delimiter);
-    const data = rows.slice(1).map(row => {
-        const values = row.split(delimiter);
-        return headers.reduce((object, header, index) => {
-        object[header] = values[index];
-        return object;
-        }, {});
-    });
-    return data;
-    }
+// Setze die Produkte in localStorage
+function updateLocalStorage() {
+    localStorage.setItem('safedProductList', JSON.stringify(safedProductList));
+}
 
-    // HTML-Elemente für jedes Produkt erstellen
-    function generateHTML(products) {
+// HTML-Elemente für jedes Produkt erstellen
+function generateHTML(products) {
     return products.map(product => `
         <article class="productCard" 
             id="product-${product.ArtNr}" 
@@ -28,68 +20,93 @@ function parseCSV(csv, delimiter = ',') {
                 <img src="${product.Foto}" alt="Produktbild von ${product.Bezeichnung}">
             </a>
             <abbr title="Produkt speichern">
-                <span class="star"><i class="fa-regular fa-star"></i></span>
+                <span class="star">${isProductSaved(product.ArtNr) ? '<i class="fa-solid fa-star"></i>' : '<i class="fa-regular fa-star"></i>'}</span>
             </abbr>
             <h2>${product.Bezeichnung}</h2>
             <p>Preis: ${product.Preis} €</p>
             <p>Farben: ${product.Farben}</p>
         </article>
     `).join('');
-    }
+}
 
-    // CSV-Daten (Diese sollten idealerweise aus einer externen Quelle geladen werden)
-    const csvData = `Foto,Bezeichnung,ArtNr,Preis,Farben
-                images/koelnerDom.jpg,Armband,1234,3.75,ambergreen,borealis,crystalpurple
-                images/Logo.png,Armband2,097124,4.50,black,white
-                images/Logo.png,Armband3,0911,13.99,auratiumgold,technogreen,bridgeblue
-                images/mrCrabs.gif,Armband4,3994,10.75,crystalpurple
-                images/bracelet1.png,Armband5,0001,7.99,black,white
-                images/smallLogo.png,Armband6,0002,9.99,black,white
-                images/braceletWrist.png,Armband7,0003,5.99,black,white`;
+// Überprüfen, ob ein Produkt gespeichert ist
+function isProductSaved(artnr) {
+    return safedProductList.some(product => product.artnr === artnr);
+}
 
-    // Produkte parsen und HTML generieren
-    const products = parseCSV(csvData, ',');
-    document.getElementById('product-container').innerHTML = generateHTML(products);
+const csvData = `Foto,Bezeichnung,ArtNr,Preis,Farben
+    images/bracelet1.png,Armband,1234,3.75,ambergreen,borealis,crystalpurple
+    images/bracelet1.png,Armband2,097124,4.50,black,white
+    images/bracelet1.png,Armband3,0911,13.99,auratiumgold,technogreen,bridgeblue
+    images/bracelet1.png,Armband4,3994,10.75,crystalpurple
+    images/bracelet1.png,Armband5,0001,7.99,black,white
+    images/bracelet1.png,Armband6,0002,9.99,black,white
+    images/bracelet1.png,Armband7,0003,5.99,black,white
+    images/bracelet1.png,Armband3,0911,13.99,auratiumgold,technogreen,bridgeblue
+    images/bracelet1.png,Armband4,3994,10.75,crystalpurple
+    images/bracelet1.png,Armband5,0001,7.99,black,white
+    images/bracelet1.png,Armband6,0002,9.99,black,white
+    images/bracelet1.png,Armband7,0003,5.99,black,white
+    images/bracelet1.png,Armband3,0911,13.99,auratiumgold,technogreen,bridgeblue
+    images/bracelet1.png,Armband4,3994,10.75,crystalpurple
+    images/bracelet1.png,Armband5,0001,7.99,black,white
+    images/bracelet1.png,Armband6,0002,9.99,black,white
+    images/bracelet1.png,Armband7,0003,5.99,black,white`;
 
-    /*
-    document.querySelectorAll('.product').forEach(productElement => {
-        productElement.addEventListener('click', (event) => {
-        const productData = event.currentTarget.getAttribute('data-product');
-        localStorage.setItem('selectedProduct', productData);
-        alert('Produkt gespeichert: ' + productData);
+    let size = csvData.split('\n').length-1;
+
+// Produkte parsen und HTML generieren
+const products = parseCSV(csvData, ',');
+document.getElementById('product-container').innerHTML = generateHTML(products);
+
+// Event-Listener für das Speichern und Entfernen von Produkten
+document.querySelectorAll(".star").forEach(starElement => {
+    starElement.addEventListener('click', (event) => {
+        const productCard = event.currentTarget.closest('.productCard');
+        const artnr = productCard.getAttribute('data-artnr');
+
+        if (!isProductSaved(artnr)) {
+            // Produkt hinzufügen und Stern ausfüllen
+            event.currentTarget.innerHTML = '<i class="fa-solid fa-star"></i>';
+            
+            // Produktdaten aus HTML holen
+            const productData = {
+                artnr,
+                preis: productCard.getAttribute('data-preis'),
+                bezeichnung: productCard.getAttribute('data-bezeichnung'),
+                farben: productCard.getAttribute('data-farben'),
+                foto: productCard.getAttribute('data-foto'),
+                datum: new Date().toISOString()
+            };
+
+            // Produkt zur Liste hinzufügen
+            safedProductList.push(productData);
+            console.log('Produkt hinzugefügt:', productData);
+            console.log('Anzahl Fotos', size);
+        } else {
+            // Produkt entfernen und Stern leer darstellen
+            event.currentTarget.innerHTML = '<i class="fa-regular fa-star"></i>';
+
+            // Produkt aus der Liste entfernen
+            safedProductList = safedProductList.filter(product => product.artnr !== artnr);
+            console.log('Produkt entfernt:', artnr);
+        }
+
+        // Aktualisiere die localStorage-Daten
+        updateLocalStorage();
     });
-    });
-    */
+});
 
-    document.querySelectorAll(".star").forEach(starElement => {
-        starElement.addEventListener('click', (event) => {
-            if (event.currentTarget.innerHTML === '<i class="fa-regular fa-star"></i>') {
-                // Ändere zu ausgefülltem Stern
-                event.currentTarget.innerHTML = '<i class="fa-solid fa-star"></i>';
-    
-                // Produktinformationen direkt aus HTML Code holen
-                const productCard = event.currentTarget.closest('.productCard');
-                const productData = {
-                    artnr: productCard.getAttribute('data-artnr'),
-                    preis: productCard.getAttribute('data-preis'),
-                    bezeichnung: productCard.getAttribute('data-bezeichnung'),
-                    farben: productCard.getAttribute('data-farben'),
-                    foto: productCard.getAttribute('data-foto'),
-                    datum: new Date().toISOString() // Datum als ISO-String speichern
-                };
-    
-                // Überprüfe, ob die Daten korrekt sind
-                console.log('Produktinformationen:', productData);
-                safedProductList.push(productData);
-            } else {
-                // Ändere zu regulärem Stern
-                event.currentTarget.innerHTML = '<i class="fa-regular fa-star"></i>';
-    
-                // Entferne die gespeicherten Daten
-                localStorage.removeItem('safedProduct');
-                console.log('Produktinformationen aus Mein Bereich gelöscht');
-            }
-        });
+// Funktion zum Parsen des CSV
+function parseCSV(csv, delimiter = ',') {
+    const rows = csv.trim().split('\n');
+    const headers = rows[0].split(delimiter);
+    const data = rows.slice(1).map(row => {
+        const values = row.split(delimiter);
+        return headers.reduce((object, header, index) => {
+            object[header] = values[index];
+            return object;
+        }, {});
     });
-    
-    
+    return data;
+}

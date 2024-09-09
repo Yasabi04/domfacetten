@@ -7,7 +7,7 @@
         list-style: none;
         a{
             position: relative;
-            font-size: var(--m);
+            font-size: var(--navBar);
             text-decoration: none;
             color: black;
         }
