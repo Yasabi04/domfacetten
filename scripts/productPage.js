@@ -12,7 +12,7 @@ function generateHTML(products) {
         <article class="productCard" 
             id="product-${product.ArtNr}" 
             data-artnr="${product.ArtNr}"
-            data-farben="${product.Farben}"
+            data-farben="${product.Farbe}"
             data-preis="${product.Preis}"
             data-bezeichnung="${product.Bezeichnung}"
             data-foto="${product.Foto}">
@@ -24,7 +24,7 @@ function generateHTML(products) {
             </abbr>
             <h2>${product.Bezeichnung}</h2>
             <p>Preis: ${product.Preis} €</p>
-            <p>Farben: ${product.Farben}</p>
+            <p>Farbe: ${product.Farbe}</p>
         </article>
     `).join('');
 }
@@ -34,68 +34,54 @@ function isProductSaved(artnr) {
     return safedProductList.some(product => product.artnr === artnr);
 }
 
-const csvData = `Foto,Bezeichnung,ArtNr,Preis,Farben
-    images/bracelet1.png,Armband,1234,3.75,ambergreen,borealis,crystalpurple
-    images/bracelet1.png,Armband2,097124,4.50,black,white
-    images/bracelet1.png,Armband3,0911,13.99,auratiumgold,technogreen,bridgeblue
-    images/bracelet1.png,Armband4,3994,10.75,crystalpurple
-    images/bracelet1.png,Armband5,0001,7.99,black,white
-    images/bracelet1.png,Armband6,0002,9.99,black,white
-    images/bracelet1.png,Armband7,0003,5.99,black,white
-    images/bracelet1.png,Armband3,0911,13.99,auratiumgold,technogreen,bridgeblue
-    images/bracelet1.png,Armband4,3994,10.75,crystalpurple
-    images/bracelet1.png,Armband5,0001,7.99,black,white
-    images/bracelet1.png,Armband6,0002,9.99,black,white
-    images/bracelet1.png,Armband7,0003,5.99,black,white
-    images/bracelet1.png,Armband3,0911,13.99,auratiumgold,technogreen,bridgeblue
-    images/bracelet1.png,Armband4,3994,10.75,crystalpurple
-    images/bracelet1.png,Armband5,0001,7.99,black,white
-    images/bracelet1.png,Armband6,0002,9.99,black,white
-    images/bracelet1.png,Armband7,0003,5.99,black,white`;
+fetch('./products.csv')
+    .then(response => response.text())
+    .then(csvData => {
 
     let size = csvData.split('\n').length-1;
 
-// Produkte parsen und HTML generieren
-const products = parseCSV(csvData, ',');
-document.getElementById('product-container').innerHTML = generateHTML(products);
+    // Produkte parsen und HTML generieren
+    const products = parseCSV(csvData, ';');
+    document.getElementById('product-container').innerHTML = generateHTML(products);
 
-// Event-Listener für das Speichern und Entfernen von Produkten
-document.querySelectorAll(".star").forEach(starElement => {
-    starElement.addEventListener('click', (event) => {
-        const productCard = event.currentTarget.closest('.productCard');
-        const artnr = productCard.getAttribute('data-artnr');
+        // Event-Listener für das Speichern und Entfernen von Produkten
+        document.querySelectorAll(".star").forEach(starElement => {
+            starElement.addEventListener('click', (event) => {
+                const productCard = event.currentTarget.closest('.productCard');
+                const artnr = productCard.getAttribute('data-artnr');
 
-        if (!isProductSaved(artnr)) {
-            // Produkt hinzufügen und Stern ausfüllen
-            event.currentTarget.innerHTML = '<i class="fa-solid fa-star"></i>';
-            
-            // Produktdaten aus HTML holen
-            const productData = {
-                artnr,
-                preis: productCard.getAttribute('data-preis'),
-                bezeichnung: productCard.getAttribute('data-bezeichnung'),
-                farben: productCard.getAttribute('data-farben'),
-                foto: productCard.getAttribute('data-foto'),
-                datum: new Date().toISOString()
-            };
+                if (!isProductSaved(artnr)) {
+                    // Produkt hinzufügen und Stern ausfüllen
+                    event.currentTarget.innerHTML = '<i class="fa-solid fa-star"></i>';
+                    
+                    // Produktdaten aus HTML holen
+                    const productData = {
+                        artnr,
+                        preis: productCard.getAttribute('data-preis'),
+                        bezeichnung: productCard.getAttribute('data-bezeichnung'),
+                        farben: productCard.getAttribute('data-farben'),
+                        foto: productCard.getAttribute('data-foto'),
+                        datum: new Date().toISOString()
+                    };
 
-            // Produkt zur Liste hinzufügen
-            safedProductList.push(productData);
-            console.log('Produkt hinzugefügt:', productData);
-            console.log('Anzahl Fotos', size);
-        } else {
-            // Produkt entfernen und Stern leer darstellen
-            event.currentTarget.innerHTML = '<i class="fa-regular fa-star"></i>';
+                    // Produkt zur Liste hinzufügen
+                    safedProductList.push(productData);
+                    console.log('Produkt hinzugefügt:', productData);
+                    console.log('Anzahl Fotos', size);
+                } else {
+                    // Produkt entfernen und Stern leer darstellen
+                    event.currentTarget.innerHTML = '<i class="fa-regular fa-star"></i>';
 
-            // Produkt aus der Liste entfernen
-            safedProductList = safedProductList.filter(product => product.artnr !== artnr);
-            console.log('Produkt entfernt:', artnr);
-        }
+                    // Produkt aus der Liste entfernen
+                    safedProductList = safedProductList.filter(product => product.artnr !== artnr);
+                    console.log('Produkt entfernt:', artnr);
+                }
 
-        // Aktualisiere die localStorage-Daten
-        updateLocalStorage();
+                // Aktualisiere die localStorage-Daten
+                updateLocalStorage();
+            });
+        });
     });
-});
 
 // Funktion zum Parsen des CSV
 function parseCSV(csv, delimiter = ',') {

@@ -24,8 +24,6 @@
     }
 }
 
-
-
 .pageGrid{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -214,6 +212,12 @@
         width: 100%;
         height: auto;
         object-fit: cover;
+    }
+    h2{
+        white-space: nowrap;      /* Verhindert Zeilenumbruch */
+        overflow: hidden;         /* Versteckt den Textüberlauf */
+        text-overflow: ellipsis;  /* Fügt "..." am Ende ein */
+        max-width: 100%;
     }
     h4{
         position: absolute;
