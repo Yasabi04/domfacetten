@@ -207,8 +207,11 @@
     box-shadow: rgb(186, 185, 185) 0px 0px 10px;
     width: 350px;
     text-align: center;
-    margin: var(--xs);
+    margin: var(--s);
+    border-radius: var(--s);
     img{
+        border-top-right-radius: var(--s);
+        border-top-left-radius: var(--s);
         width: 100%;
         height: auto;
         object-fit: cover;
@@ -261,4 +264,44 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
+}
+
+.productDetails{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: var(--m);
+    font-size: var(--m);
+    border: var(--3xs) solid var(--beigegelb);
+    h4{
+        color: grey;
+    }
+    fieldset{
+        width: 400px;
+        margin-bottom: var(--s);
+        legend{
+            margin-left: var(--s);
+            padding: var(--s);
+        }
+        i{
+            padding-right: var(--s);
+        }
+    }
+    .preis{
+        font-size: var(--l);
+        label{
+            align-items: center;
+        }
+    }
+    .available{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-size: var(--m);
+        i{
+            color: lightgreen;
+        }
+    }
 }

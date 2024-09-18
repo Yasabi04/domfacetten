@@ -56,12 +56,11 @@ fetch('./products.csv')
                     
                     // Produktdaten aus HTML holen
                     const productData = {
-                        artnr,
+                        artnr: productCard.getAttribute('data-artnr'),
                         preis: productCard.getAttribute('data-preis'),
                         bezeichnung: productCard.getAttribute('data-bezeichnung'),
                         farben: productCard.getAttribute('data-farben'),
                         foto: productCard.getAttribute('data-foto'),
-                        datum: new Date().toISOString()
                     };
 
                     // Produkt zur Liste hinzufügen

@@ -50,48 +50,59 @@
     <script>
         const artnr = localStorage.getItem('tempArtnr');
         const preis = localStorage.getItem('tempPreis');
-        const farben = localStorage.getItem('tempFarben');
         function loadPreferedProduct(){
-            if(artnr && preis){
+            if(true){
                 const container = document.getElementById("singleProduct");
                 const product = document.createElement('article');
                 product.className = "shownProduct"
                 
                 product.innerHTML = `
-                    <h1>Artikelnummer: ${artnr}</h1>
-                    <h2>Preis: ${preis}</h2>
-                    <button id = "buyingButton">Jetzt bezahlen!</button>
+                    <section class = "productDetails">
+                        <h1>Name</h1>
+                        <h4>Artikelnummer</h4>
+                        <div class = "preis">
+                            <input type="radio" checked></input>
+                            <label for="preis">Preis</label>
+                        </div>
+                        <div class = "available">
+                            <i class="fa-solid fa-check"></i>
+                            <p> Dieser Artikel ist verfügbar!</p>
+                        </div>
+                        <fieldset>
+                            <legend>Lieferung</legend>
+                            <p><i class="fa-solid fa-truck-fast"></i>Artikel wird per deutsche Post versendet!</p>
+                        </fieldset>
+                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                            <input type="hidden" name="cmd" value="_s-xclick" />
+                            <input type="hidden" name="hosted_button_id" value="TZFU554WEU6MQ" />
+                            <table>
+                                <tr>
+                                <td>
+                                    <input type="hidden" name="on0" value="Hinterlassen Sie uns gerne eine Nachricht!"/>
+                                    Hinterlassen Sie uns gerne eine Nachricht!
+                                </td>
+                                </tr>
+                                <tr>
+                                <td>
+                                    <input type="text" name="os0" maxLength="200" />
+                                </td>
+                                </tr>
+                            </table>
+                            <input type="hidden" name="currency_code" value="EUR" />
+                            <input type="image" src="https://www.paypalobjects.com/de_DE/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" title="PayPal – Einfacher und sicherer online bezahlen." alt="Jetzt kaufen" />
+                        </form>
+                    </section>
                 `;
                 container.appendChild(product)
             }
             else{
-                console-log("Keine Produktinformationen gefunden :(")
+                console.log("Keine Produktinformationen gefunden :(")
             }
         }
 
         loadPreferedProduct();
 
-    document.getElementById("buyingButton").addEventListener("click", function() {
-    // Überprüfen, ob das Div bereits existiert
-        if (!document.getElementById("getUserInfo")) {
-            // Erstelle das neue Div-Element
-            const div = document.createElement("article");
-            div.id = "getUserInfo";
-            div.innerHTML = `
-                <input placeholder = "E-Mail"></input>
-                <input placeholder = "Vollständiger Name"></input>
-                <input placeholder = "Straße"></input>
-                <input placeholder = "Postleitzahl"></input>
-                <input placeholder = "Ort"></input>
-                <input placeholder = "Land"></input>
-                <button>Mit Paypal bezahlen!</button>
-            `;
 
-
-            // Füge das Div zum Body hinzu
-            document.body.appendChild(div);
-        }
-    });
 
 
     </script>
