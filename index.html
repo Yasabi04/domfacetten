@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Domfacetten - Home</title>
-    <link rel="stylesheet" href="../css/base.css">
-    <link rel="stylesheet" href="../css/footer.css">
-    <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/body.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/body.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" href="./images/smallLogo.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,18 +17,15 @@
 </head>
 <body>
     <header>
-        <ul class="navList">
-            <li><a href="index.html">Hauptseite</a></li>
-            <li><a href="productPage.html">Alle Produkte</a></li>
-            <li><a href="me.html">Mein Bereich</a></li>
-            <li>
-                <a href="/views/login.ejs" method="POST">
-                    <button type="submit" style="background:none;border:none;">
-                        <span class="userSymbol"><i class="fa-regular fa-user"></i></span>
-                    </button>
-                </form>
-            </li>
-        </ul>
+        <nav class = "mainNavBar">
+            <ul class="navList">
+                <li><a href="index.html">Hauptseite</a></li>
+                <li><a href="productPage.html">Alle Produkte</a></li>
+                <li><a href="me.html">Mein Bereich</a></li>
+                <li><a href="#"><span class="userSymbol"><i class="fa-regular fa-user"></i></span></li>
+            </ul>
+        </nav>
+        
    
        <!-- 
         <div class = "newsContainer">
