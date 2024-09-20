@@ -1,0 +1,123 @@
+.productOverview{
+    padding: var(--xl);
+    h1{
+        padding: var(--xs);
+        font-size: var(--l);
+        font-style: italic;
+        color: rgb(109, 83, 12)
+    }
+    hr{
+        border: 1px solid var(--beigegelb);
+        background-color: var(--beigegelb);
+        margin-bottom: var(--m);
+    }
+    div{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+.productCard{
+    position: relative;
+    box-shadow: rgb(186, 185, 185) 0px 0px 10px;
+    width: 350px;
+    text-align: center;
+    margin: var(--s);
+    border-radius: var(--s);
+    img{
+        border-top-right-radius: var(--s);
+        border-top-left-radius: var(--s);
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+    h2{
+        white-space: nowrap;      /* Verhindert Zeilenumbruch */
+        overflow: hidden;         /* Versteckt den Textüberlauf */
+        text-overflow: ellipsis;  /* Fügt "..." am Ende ein */
+        max-width: 100%;
+    }
+    h4{
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: rgb(206, 206, 206);
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    select{
+        background-color: var(--beigegelb);
+        padding: var(--xs);
+        appearance: none;
+        border: none;
+        border-radius: var(--xs);
+        font-size: var(--s);
+    }
+    a{
+        color: inherit;
+    }
+    span{
+        position: absolute;
+        top: var(--s);
+        right: var(--s);
+        scale: 1.3;
+        opacity: 0;
+    }
+}
+
+.productCard:hover{
+    transform: scale(1.05);
+    transition: 0.5s;
+    box-shadow: grey 0px 0px 10px;
+}
+
+.productCard:hover span{
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.product-container{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.productDetails{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: var(--m);
+    font-size: var(--m);
+    border: var(--3xs) solid var(--beigegelb);
+    h4{
+        color: grey;
+    }
+    fieldset{
+        width: 400px;
+        margin-bottom: var(--s);
+        legend{
+            margin-left: var(--s);
+            padding: var(--s);
+        }
+        i{
+            padding-right: var(--s);
+        }
+    }
+    .preis{
+        font-size: var(--l);
+        label{
+            align-items: center;
+        }
+    }
+    .available{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-size: var(--m);
+        i{
+            color: lightgreen;
+        }
+    }
+}
