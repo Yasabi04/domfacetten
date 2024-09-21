@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Domfacetten - Produktübersicht</title>
-    <link rel="stylesheet" href="./css/base.css">
-    <link rel="stylesheet" href="./css/body.css">
-    <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./assets/base.css">
+    <link rel="stylesheet" href="./assets/header.css">
+    <link rel="stylesheet" href="./assets/products.css">
+    <link rel="stylesheet" href="./assets/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" href="../images/smallLogo.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,7 +39,7 @@
 
     <footer>
         <nav>
-            <ul class = "footertext">
+            <ul class = "footertext fixed">
                 <li><a href="about.html">Über uns</a></li>
                 <li><a href="service.html">Service</a></li>
                 <li><a href="rechtliches.html">Rechtliches</a></li>
@@ -57,40 +57,46 @@
                 product.className = "shownProduct"
                 
                 product.innerHTML = `
-                    <section class = "productDetails">
-                        <h1>Name</h1>
-                        <h4>Artikelnummer</h4>
-                        <div class = "preis">
-                            <input type="radio" checked></input>
-                            <label for="preis">Preis</label>
+                    <section class = "shownProduct">
+                        <div>
+                            <img src="./images/ArmbandGold.jpg" alt="Produktbild">
                         </div>
-                        <div class = "available">
-                            <i class="fa-solid fa-check"></i>
-                            <p> Dieser Artikel ist verfügbar!</p>
+                        <hr>
+                        <div class class = "productDetails">
+                            <h1>Name</h1>
+                            <h4>Artikelnummer</h4>
+                            <div class = "preis">
+                                <input type="radio" checked></input>
+                                <label for="preis">Preis</label>
+                            </div>
+                            <div class = "available">
+                                <i class="fa-solid fa-check"></i>
+                                <p> Dieser Artikel ist verfügbar!</p>
+                            </div>
+                            <fieldset>
+                                <legend>Lieferung</legend>
+                                <p><i class="fa-solid fa-truck-fast"></i>Artikel wird per deutsche Post versendet!</p>
+                            </fieldset>
+                            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                <input type="hidden" name="cmd" value="_s-xclick" />
+                                <input type="hidden" name="hosted_button_id" value="TZFU554WEU6MQ" />
+                                <table>
+                                    <tr>
+                                    <td>
+                                        <input type="hidden" name="on0" value="Hinterlassen Sie uns gerne eine Nachricht!"/>
+                                        Hinterlassen Sie uns gerne eine Nachricht!
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                    <td>
+                                        <input type="text" name="os0" maxLength="200" />
+                                    </td>
+                                    </tr>
+                                </table>
+                                <input type="hidden" name="currency_code" value="EUR" />
+                                <input type="image" src="https://www.paypalobjects.com/de_DE/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" title="PayPal – Einfacher und sicherer online bezahlen." alt="Jetzt kaufen" />
+                            </form>
                         </div>
-                        <fieldset>
-                            <legend>Lieferung</legend>
-                            <p><i class="fa-solid fa-truck-fast"></i>Artikel wird per deutsche Post versendet!</p>
-                        </fieldset>
-                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                            <input type="hidden" name="cmd" value="_s-xclick" />
-                            <input type="hidden" name="hosted_button_id" value="TZFU554WEU6MQ" />
-                            <table>
-                                <tr>
-                                <td>
-                                    <input type="hidden" name="on0" value="Hinterlassen Sie uns gerne eine Nachricht!"/>
-                                    Hinterlassen Sie uns gerne eine Nachricht!
-                                </td>
-                                </tr>
-                                <tr>
-                                <td>
-                                    <input type="text" name="os0" maxLength="200" />
-                                </td>
-                                </tr>
-                            </table>
-                            <input type="hidden" name="currency_code" value="EUR" />
-                            <input type="image" src="https://www.paypalobjects.com/de_DE/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" title="PayPal – Einfacher und sicherer online bezahlen." alt="Jetzt kaufen" />
-                        </form>
                     </section>
                 `;
                 container.appendChild(product)
