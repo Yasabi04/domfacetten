@@ -1,13 +1,14 @@
 .mainNavBar{
     border-bottom: 2px solid var(--beigegelb);
-    padding: var(--m);
+    padding: var(--s);
     background-color: white;
     .navList{
         display: flex;
+        align-items: center;
         list-style: none;
         a{
             position: relative;
-            font-size: var(--navBar);
+            font-size: var(--m);
             text-decoration: none;
             color: black;
         }
@@ -27,7 +28,8 @@
         li{
             margin-right: var(--l);
         }
-        li:nth-child(4){
+        
+        li:nth-child(5){
             margin-left: auto;
         }
     }

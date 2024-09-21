@@ -109,49 +109,41 @@
     align-items: center;
 }
 
-.productDetails{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    height: 500px;
-    padding-left: var(--m);
-    font-size: var(--m);
-    border: var(--3xs) solid var(--beigegelb);
-    h4{
-        color: grey;
-    }
-    fieldset{
-        width: 400px;
-        margin-bottom: var(--s);
-        legend{
-            margin-left: var(--s);
-            padding: var(--s);
-        }
-        i{
-            padding-right: var(--s);
-        }
-    }
-    .preis{
-        font-size: var(--l);
-        label{
-            align-items: center;
-        }
-    }
-    .available{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        font-size: var(--m);
-        i{
-            color: lightgreen;
-        }
-    }
-}
 
-.safed{
+
+
+
+
+
+
+
+
+
+
+
+
+/*Einzelnes Produkt*/
+
+
+
+
+
+
+
+
+
+
+.shownProduct{
     display: flex;
-    flex-direction: column;
-    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    img{
+        width: 50%;
+        height: auto;
+    }
+    div{
+        display: flex;
+        flex-direction: column;
+    }
 }
