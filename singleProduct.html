@@ -31,16 +31,22 @@
 
     <main>
         <section class = "productOverview">
-            <h1>Produktübersicht</h1>
-            <hr>
-            <div id="singleProduct"></div>
+            <div id="singleProduct">
+                <article class = "shownProduct">
+                    <div class = "foto">
+                        <img src="./images/ArmbandGold.jpg" alt="Platzhalter">
+                    </div>
+                    <div class = "infos">
+                    </div>
+                </article>
+            </div>
         </section>
     </main>
 
 
     <footer>
         <nav>
-            <ul class = "footertext fixed">
+            <ul class = "footertext">
                 <li><a href="about.html">Über uns</a></li>
                 <li><a href="service.html">Service</a></li>
                 <li><a href="rechtliches.html">Rechtliches</a></li>
@@ -48,32 +54,6 @@
             </ul>
         </nav>
     </footer>
-    <script>
-        const artnr = localStorage.getItem('tempArtnr');
-        const preis = localStorage.getItem('tempPreis');
-        function loadPreferedProduct(){
-            if(true){
-                const container = document.getElementById("singleProduct");
-                const product = document.createElement('article');
-                product.className = "shownProduct"
-                
-                product.innerHTML = `
-                    <section class = "shownProduct">
-                        <div class = "productPicture">
-                            <img src="./images/ArmbandGold.jpg" alt="Produktbild">
-                        </div>
-                        <div class class = "productDetails">
-                        </div>
-                    </section>
-                `;
-                container.appendChild(product)
-            }
-            else{
-                console.log("Keine Produktinformationen gefunden :(")
-            }
-        }
-
-        loadPreferedProduct();
-    </script>
+    <script src="./scripts/singlePorduct,js"></script>
 </body>
 </html>

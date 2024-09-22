@@ -19,9 +19,7 @@ function generateHTML(products) {
             <a href="singleProduct.html">
                 <img src="${product.Foto}" alt="Produktbild von ${product.Bezeichnung}">
             </a>
-            <abbr title="Produkt speichern">
-                <span class="star">${isProductSaved(product.ArtNr) ? '<i class="fa-solid fa-star"></i>' : '<i class="fa-regular fa-star"></i>'}</span>
-            </abbr>
+            <span class="star">${isProductSaved(product.ArtNr) ? '<i class="fa-solid fa-star"></i>' : '<i class="fa-regular fa-star"></i>'}</span>
             <h2>${product.Bezeichnung}</h2>
             <p>Preis: ${product.Preis} €</p>
             <p>Farbe: ${product.Farbe}</p>
