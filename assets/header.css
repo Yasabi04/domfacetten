@@ -12,7 +12,6 @@
             font-size: var(--m);
             text-decoration: none;
             color: black;
-            
         }
         a::after{
             content: '';
@@ -42,7 +41,7 @@
 
 #searchBar{
     display: flex;
-    position:absolute;
+    position: absolute;
     right: 0;
     justify-content: center;
     padding: var(--m);
@@ -53,5 +52,36 @@
         border-radius: var(--xs);
         background-color: var(--beigegelb);
         border-color: var(--beigegelb);
+    }
+}
+
+.icon-container {
+    position: relative; /* Positionierung für die Icons */
+}
+
+.icon {
+    position: absolute; /* Absolute Positionierung */
+    width: 100%; /* Größe anpassen */
+    height: 100%; /* Größe anpassen */
+    transition: opacity 0.3s ease; /* Sanfter Übergang */
+}
+
+/* Standardzustand: kleines Icon sichtbar */
+.icon-small {
+    opacity: 1; /* Sichtbar */
+}
+
+.icon-huge {
+    opacity: 0; /* Unsichtbar */
+}
+
+/* Media Query für größere Bildschirme */
+@media (min-width: 768px) {
+    .icon-small {
+        opacity: 0; /* Unsichtbar */
+    }
+
+    .icon-large {
+        opacity: 1; /* Sichtbar */
     }
 }

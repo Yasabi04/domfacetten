@@ -95,9 +95,11 @@
     flex-direction:  row;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 100%;
     .product-image{
-        margin: var(--s);
+        display: flex;
+        width: 100%;
+        justify-content: flex-end;
         img{
             max-width: 500px;
             max-height: 500px;
@@ -105,9 +107,14 @@
         }
     }
     .product-details{
+        width: 100%;
         margin: var(--s);
+        hr{
+            width: 70%;
+        }
         h2{
             font-size: var(--l);
+            text-decoration: double;
         }
         p{
             font-size: var(--m);
