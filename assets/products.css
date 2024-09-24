@@ -24,10 +24,12 @@
     }
 }
 
-.product-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);  
-    gap: var(--m);  
+#product-container{
+    display: flex;
+    justify-content: center; /* Zentriert die Karten in der Mitte des Bildschirms */
+    flex-wrap: wrap; /* Karten umbrechen lassen, wenn kein Platz mehr ist */
+    gap: 10px; /* Abstand zwischen den Karten */
+    padding: 20px; /* Etwas Pufferraum */
 }
 
 .productOverview{
@@ -40,13 +42,17 @@
 
 .productCard{
     position: relative;
-    display: flex;
-    flex-direction: column;
     height: 100%;
-    width: 350px;
-    margin: var(--m);
+    margin: var(--s);
+    border-radius: var(--2xs);
+    page-break-inside: avoid; /* Verhindert, dass eine Karte geteilt wird */
+    display: inline-block;
+    width: 350px; /* Breite auf 100% der Spalte setzen */
     background-color: aliceblue;
     border-radius: var(--2xs);
+    break-inside: avoid;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0); /* Standard: Kein Schatten */
+    transition: box-shadow 0.5s ease; /* Übergang für Schatten */
     img{
         border-radius: var(--2xs) var(--2xs) 0 0;
         max-width: 350px;
@@ -61,6 +67,10 @@
     }
 }
 
+.productCard:hover{
+    transition: 0.5s ease;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+}
 
 
 
