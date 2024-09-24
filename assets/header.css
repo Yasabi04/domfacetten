@@ -1,7 +1,8 @@
 .mainNavBar{
     border-bottom: 2px solid var(--beigegelb);
     padding: var(--s);
-    background-color: white;
+    background-color: transparent;
+    backdrop-filter: blur(30px);
     .navList{
         display: flex;
         align-items: center;
@@ -11,6 +12,7 @@
             font-size: var(--m);
             text-decoration: none;
             color: black;
+            
         }
         a::after{
             content: '';
