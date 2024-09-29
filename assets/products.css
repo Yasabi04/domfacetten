@@ -90,34 +90,112 @@
 
 
 
-.shownProduct{
+.product-details-container {
     display: flex;
-    flex-direction:  row;
     justify-content: center;
     align-items: center;
+    background-color: white;
+    padding: 20px;
+    gap: 20px;
+    max-width: 1200px;
+    margin: auto; /* Horizontales Zentrieren */
+    position: absolute; /* Ermöglicht vertikales Zentrieren */
+    top: 50%; /* Vertikales Zentrieren */
+    left: 50%; /* Horizontales Zentrieren */
+    transform: translate(-50%, -50%); /* Korrektur der Position */
+}
+
+.product-image img {
+    max-width: 400px;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.product-image p {
+    color: gray;
+    font-size: 14px;
+    text-align: left;
+}
+
+.product-details {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    h2 {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+    hr {
+        margin: 10px 0;
+        border: 1px solid #ccc;
+    }
+}
+
+.checkbox-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.numbers {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--m);
     width: 100%;
-    .product-image{
-        display: flex;
-        width: 100%;
-        justify-content: flex-end;
-        img{
-            max-width: 500px;
-            max-height: 500px;
-            object-fit: cover;
-        }
+    .price{
+        position: relative;
+        font-size: 24px;
+        font-weight: bold;
     }
-    .product-details{
-        width: 100%;
-        margin: var(--s);
-        hr{
-            width: 70%;
-        }
-        h2{
-            font-size: var(--l);
-            text-decoration: double;
-        }
-        p{
-            font-size: var(--m);
-        }
+    .price::after {
+        content: "inkl. MwSt.";
+        display: block;
+        font-size: var(--s);
+        font-weight: normal;
+        color: gray;
+        position: absolute;
+        left: 0;
+        top: 100%; /* Position directly below the price */
+        white-space: nowrap; /* Prevents line breaks */
+        margin-top: 5px; /* Space between the price and the text */
     }
+}
+
+.available {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    margin-top: 15px;
+    color: #4caf50;
+    i {
+        margin-right: 10px;
+    }
+}
+
+.remarks input,
+.remarks textarea {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.buy-btn {
+    background-color: #ffd700;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.buy-btn:hover {
+    background-color: #ffcc00;
 }

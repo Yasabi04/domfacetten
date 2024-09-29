@@ -32,20 +32,34 @@
 
     <main>
         <section class = "productOverview">
-            <div id="singleProduct">
-                <article class = "shownProduct">
-                    <div class = "product-image">
-                        <img src="./images/TestWhatsap.jpg" alt="ArmandGold">
+            <div class="product-details-container">
+                <div class="product-image">
+                    <img src="./images/TestWhatsap.jpg" alt="Armband Bild">
+                    <p>ArtikelNummer: 019293</p>
+                </div>
+        
+                <div class="product-details">
+                    <h2>Armband Gold 18K</h2>
+                    <hr>
+                    <form>
+                        <label class="checkbox-label" for="option1">
+                            <input class="checkbox" type="radio" id="option1" name="auswahl" value="option1" checked>
+                            <div class="numbers">
+                                <span>Menge: 1 Stk.</span>
+                                <span class = "price">8.50$</span>
+                            </div>
+                        </label>
+                    </form>
+                    <div class="available">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <p>Dieser Artikel ist verfügbar!</p>
                     </div>
-                    <div class = "product-details">
-                        <h2>Armband Gold</h2>
-                        <hr>
-                        <p>Menge: 1</p>
-                        <p><i class="fa-solid fa-check"></i>Dieser Artikel ist verfügbar</p>
-                        <p>Preis: 29,99€</p>
-                        <button>Kaufen</button>
-                    </div>                
-                </article>
+                    <form class="remarks">
+                        <input type="text" placeholder="Anmerkung">
+                        <textarea placeholder=""></textarea>
+                    </form>
+                    <button class="buy-btn">Bezahlen</button>
+                </div>
             </div>
         </section>
     </main>
@@ -61,6 +75,6 @@
             </ul>
         </nav>
     </footer>
-    <script src="./scripts/singlePorduct,js"></script>
+    <script src="./scripts/singleProduct.js"></script>
 </body>
 </html>

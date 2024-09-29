@@ -10,7 +10,6 @@ function updateLocalStorage() {
 function generateHTML(products) {
     return products.map(product => `
         <article class="productCard" 
-            id="product-${product.ArtNr}" 
             data-artnr="${product.ArtNr}"
             data-farben="${product.Farbe}"
             data-preis="${product.Preis}"
@@ -42,43 +41,61 @@ fetch('./products.csv')
     const products = parseCSV(csvData, ';');
     document.getElementById('product-container').innerHTML = generateHTML(products);
 
-        // Event-Listener für das Speichern und Entfernen von Produkten
-        document.querySelectorAll(".star").forEach(starElement => {
-            starElement.addEventListener('click', (event) => {
-                const productCard = event.currentTarget.closest('.productCard');
-                const artnr = productCard.getAttribute('data-artnr');
-
-                if (!isProductSaved(artnr)) {
-                    // Produkt hinzufügen und Stern ausfüllen
-                    event.currentTarget.innerHTML = '<i class="fa-solid fa-star"></i>';
-                    
-                    // Produktdaten aus HTML holen
-                    const productData = {
-                        artnr: productCard.getAttribute('data-artnr'),
-                        preis: productCard.getAttribute('data-preis'),
-                        bezeichnung: productCard.getAttribute('data-bezeichnung'),
-                        farben: productCard.getAttribute('data-farben'),
-                        foto: productCard.getAttribute('data-foto'),
-                    };
-
-                    // Produkt zur Liste hinzufügen
-                    safedProductList.push(productData);
-                    console.log('Produkt hinzugefügt:', productData);
-                    console.log('Anzahl Fotos', size);
-                } else {
-                    // Produkt entfernen und Stern leer darstellen
-                    event.currentTarget.innerHTML = '<i class="fa-regular fa-star"></i>';
-
-                    // Produkt aus der Liste entfernen
-                    safedProductList = safedProductList.filter(product => product.artnr !== artnr);
-                    console.log('Produkt entfernt:', artnr);
-                }
-
-                // Aktualisiere die localStorage-Daten
-                updateLocalStorage();
-            });
+    document.querySelectorAll('.productCard').forEach(card => {
+        card.addEventListener('click', (event) => {
+            const artnr = card.getAttribute('data-artnr');
+            const preis = card.getAttribute('data-preis');
+            const bezeichnung = card.getAttribute('data-bezeichnung');
+            const farben = card.getAttribute('data-farben');
+            const foto = card.getAttribute('data-foto');
+            const productData = {
+                artnr: artnr,
+                preis: preis,
+                bezeichnung: bezeichnung,
+                farben: farben,
+                foto: foto
+            };
+            localStorage.setItem('selectedProduct', productData);  // Speichert die ArtNr des Produkts
+            console.log('Produkt gespeichert:', productData);
         });
     });
+
+    // Event-Listener für das Speichern und Entfernen von Produkten
+    document.querySelectorAll(".star").forEach(starElement => {
+        starElement.addEventListener('click', (event) => {
+            const productCard = event.currentTarget.closest('.productCard');
+            const artnr = productCard.getAttribute('data-artnr');
+
+            if (!isProductSaved(artnr)) {
+                // Produkt hinzufügen und Stern ausfüllen
+                event.currentTarget.innerHTML = '<i class="fa-solid fa-star"></i>';
+                
+                // Produktdaten aus HTML holen
+                const productData = {
+                    artnr: productCard.getAttribute('data-artnr'),
+                    preis: productCard.getAttribute('data-preis'),
+                    bezeichnung: productCard.getAttribute('data-bezeichnung'),
+                    farben: productCard.getAttribute('data-farben'),
+                    foto: productCard.getAttribute('data-foto'),
+                };
+
+                // Produkt zur Liste hinzufügen
+                safedProductList.push(productData);
+                console.log('Produkt hinzugefügt:', productData);
+                console.log('Anzahl Fotos', size);
+            } else {
+                // Produkt entfernen und Stern leer darstellen
+                event.currentTarget.innerHTML = '<i class="fa-regular fa-star"></i>';
+
+                // Produkt aus der Liste entfernen
+                safedProductList = safedProductList.filter(product => product.artnr !== artnr);
+                console.log('Produkt entfernt:', artnr);
+            }
+            // Aktualisiere die localStorage-Daten
+            updateLocalStorage();
+        });
+    });
+});
 
 // Funktion zum Parsen des CSV
 function parseCSV(csv, delimiter = ',') {
