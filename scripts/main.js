@@ -1,3 +1,4 @@
+/*
 document.addEventListener('scroll', function() {
     const footer = document.querySelector('footer');
     const cookieButton = document.querySelector('.buyMeACookie');
@@ -11,6 +12,7 @@ document.addEventListener('scroll', function() {
         cookieButton.style.bottom = '10px'; // Zurück zur ursprünglichen Position
     }
 });
+*/
 
 document.querySelector('.searchSymbol').addEventListener('click', () => {
     // Erstelle das Input-Feld dynamisch
