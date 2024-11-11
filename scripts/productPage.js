@@ -18,9 +18,7 @@ function generateHTML(products) {
             data-bezeichnung="${product.Bezeichnung}"
             data-foto="${product.Foto}">
             <a href="singleProduct.html">
-                <img src="${product.Foto}" alt="Produktbild von ${
-        product.Bezeichnung
-      }">
+                <img src="${product.Foto}" alt="Produktbild von ${product.Bezeichnung}">
             </a>
             <span class="star">${
               isProductSaved(product.ArtNr)
@@ -29,7 +27,25 @@ function generateHTML(products) {
             }</span>
             <h2>${product.Bezeichnung}</h2>
             <p>Preis: ${product.Preis} €</p>
-            <p>Farbe: ${product.Farbe}</p>
+            <p>${product.Farbe !== "-"
+              ? "Farben: " + product.Farbe
+              : ""
+            }</p>
+            <span class = "new">${
+              product.Special === "true" 
+                ? "Neu"
+                : ""
+            }</span>
+            <span class = "bestseller">${
+              product.Bestseller === "true" 
+                ? "Bestseller"
+                : ""
+            }</span>
+            <span class = "sale">${
+              product.Sale === "true" 
+                ? "Sale"
+                : ""
+            }</span>
         </article>
     `
     )

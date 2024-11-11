@@ -59,11 +59,28 @@
         max-height: 350px;
         object-fit: cover;
     }
-    span{
+    .star{
         position: absolute;
         color: white;
         top: var(--s);
         right: var(--s);
+    }
+    .new, .bestseller, .sale{
+        position: absolute;
+        font-size: var(--m);
+        color: white;
+        background-color: red;
+        top: var(--s);
+        left: 0;
+        padding-left: var(--s);
+        padding-right: var(--2xs);
+        border-radius: var(--2xs) 0 0 0;
+    }
+    .bestseller{
+        background-color: green;
+    }
+    .sale{
+        background-color: orange;
     }
 }
 
