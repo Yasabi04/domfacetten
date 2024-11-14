@@ -7,50 +7,38 @@ function updateLocalStorage() {
 }
 
 // HTML-Elemente für jedes Produkt erstellen
+
 function generateHTML(products) {
   return products
     .map(
       (product) => `
-        <article class="productCard" 
-            data-artnr="${product.ArtNr}"
-            data-farben="${product.Farbe}"
-            data-preis="${product.Preis}"
-            data-bezeichnung="${product.Bezeichnung}"
-            data-foto="${product.Foto}">
-            <a href="singleProduct.html">
-                <img src="${product.Foto}" alt="Produktbild von ${product.Bezeichnung}">
-            </a>
-            <span class="star">${
-              isProductSaved(product.ArtNr)
-                ? '<i class="fa-solid fa-star"></i>'
-                : '<i class="fa-regular fa-star"></i>'
-            }</span>
-            <h2>${product.Bezeichnung}</h2>
-            <p>Preis: ${product.Preis} €</p>
-            <p>${product.Farbe !== "-"
-              ? "Farben: " + product.Farbe
-              : ""
-            }</p>
-            <span class = "new">${
-              product.Special === "true" 
-                ? "Neu"
-                : ""
-            }</span>
-            <span class = "bestseller">${
-              product.Bestseller === "true" 
-                ? "Bestseller"
-                : ""
-            }</span>
-            <span class = "sale">${
-              product.Sale === "true" 
-                ? "Sale"
-                : ""
-            }</span>
-        </article>
+            <section class = "temp-product"
+              data-artnr="${product.ArtNr}"
+              data-farben="${product.Farbe}"
+              data-preis="${product.Preis}"
+              data-bezeichnung="${product.Bezeichnung}"
+              data-foto="${product.Foto}">
+                <a href="singleProduct.html">
+                  <div class = "temp-image-container">
+                      <img src="${product.Foto}" alt="${product.ArtNr}">
+                  </div>
+                  <div class = "temp-product-text">
+                    <h2>${product.Bezeichnung}</h2>
+                    <p class = "temp-colour">Farbe: ${product.Farbe}</p>
+                    <p class = "temp-price">${product.Preis}$</p>
+                    <span class="star">${
+                      isProductSaved(product.ArtNr)
+                        ? '<i class="fa-solid fa-star"></i>'
+                        : '<i class="fa-regular fa-star"></i>'
+                    }</span>
+                  </div>
+                </a>
+            </section>
     `
     )
     .join("");
 }
+
 
 // Überprüfen, ob ein Produkt gespeichert ist
 function isProductSaved(artnr) {
@@ -136,3 +124,47 @@ function parseCSV(csv, delimiter = ",") {
   });
   return data;
 }
+
+
+
+
+/*Altes Produkt*/
+
+/*
+<article class="productCard" 
+            data-artnr="${product.ArtNr}"
+            data-farben="${product.Farbe}"
+            data-preis="${product.Preis}"
+            data-bezeichnung="${product.Bezeichnung}"
+            data-foto="${product.Foto}">
+            <a href="singleProduct.html">
+                <img src="${product.Foto}" alt="Produktbild von ${product.Bezeichnung}">
+            </a>
+            <span class="star">${
+              isProductSaved(product.ArtNr)
+                ? '<i class="fa-solid fa-star"></i>'
+                : '<i class="fa-regular fa-star"></i>'
+            }</span>
+            <h2>${product.Bezeichnung}</h2>
+            <p>Preis: ${product.Preis} €</p>
+            <p>${product.Farbe !== "-"
+              ? "Farben: " + product.Farbe
+              : ""
+            }</p>
+            <span class = "new">${
+              product.Special === "true" 
+                ? "Neu"
+                : ""
+            }</span>
+            <span class = "bestseller">${
+              product.Bestseller === "true" 
+                ? "Bestseller"
+                : ""
+            }</span>
+            <span class = "sale">${
+              product.Sale === "true" 
+                ? "Sale"
+                : ""
+            }</span>
+        </article>
+*/
