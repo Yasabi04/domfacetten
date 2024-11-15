@@ -24,15 +24,15 @@ function generateHTML(products) {
                   </div>
                   <div class = "temp-product-text">
                     <h2>${product.Bezeichnung}</h2>
-                    <p class = "temp-colour">Farbe: ${product.Farbe}</p>
-                    <p class = "temp-price">${product.Preis}$</p>
-                    <span class="star">${
-                      isProductSaved(product.ArtNr)
-                        ? '<i class="fa-solid fa-star"></i>'
-                        : '<i class="fa-regular fa-star"></i>'
-                    }</span>
+                    <p class = "temp-colour">${product.ArtNr}</p>
+                    <p class = "temp-price">${product.Farbe}</p>
                   </div>
                 </a>
+                <span class="temp-star">${
+                  isProductSaved(product.ArtNr)
+                    ? '<i class="fa-solid fa-star"></i>'
+                    : '<i class="fa-regular fa-star"></i>'
+                }</span>
             </section>
     `
     )

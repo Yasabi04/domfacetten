@@ -28,7 +28,7 @@
     display: flex;
     justify-content: center; /* Zentriert die Karten in der Mitte des Bildschirms */
     flex-wrap: wrap; /* Karten umbrechen lassen, wenn kein Platz mehr ist */
-    gap: 10px; /* Abstand zwischen den Karten */
+    gap: 50px; /* Abstand zwischen den Karten */
     padding: 20px; /* Etwas Pufferraum */
 }
 
@@ -41,19 +41,20 @@
     }
 }
 
+/*
 .productCard{
     position: relative;
     height: 100%;
     margin: var(--s);
     border-radius: var(--2xs);
-    page-break-inside: avoid; /* Verhindert, dass eine Karte geteilt wird */
+    page-break-inside: avoid; 
     display: inline-block;
-    width: 350px; /* Breite auf 100% der Spalte setzen */
+    width: 350px; 
     background-color: aliceblue;
     border-radius: var(--2xs);
     break-inside: avoid;
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0); /* Standard: Kein Schatten */
-    transition: box-shadow 0.5s ease; /* Übergang für Schatten */
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0); 
+    transition: box-shadow 0.5s ease; 
     img{
         border-radius: var(--2xs) var(--2xs) 0 0;
         max-width: 350px;
@@ -90,6 +91,8 @@
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
     transform: scale(1.03);
 }
+
+*/
 
 
 
@@ -243,12 +246,15 @@
 
 /*Test-Section*/
 
+
+
+
 .temp-product{
-    font-family: 'Karla', Arial, Helvetica, sans-serif;
+    font-family: 'Helvetica', sans-serif;
     width: 350px;
     height: auto;
     background-color: white;
-    padding: var(--s);
+    position: relative;
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
     .temp-image-container{
         width: 100%;
@@ -261,27 +267,30 @@
         }
     }
     .temp-product-text{
-        position: relative;
+        padding-left: var(--m);
+        padding-bottom: var(--s);
         color: black;
         h2{
+            font-weight: 700;
             width: 90%;
             padding-left: 0;
             padding-bottom: 0;
+            text-transform: uppercase;
         }
-
         .temp-colour{
-            font-weight: lighter;
+            font-weight: 300;
             padding-left: 0;
             padding-bottom: 0;
         }
         .temp-price{
-            font-weight: bolder;
+            font-weight: bold;
             font-size: var(--m);
             padding-left: 0;
         }
     }
-    span{
+    .temp-star{
         position: absolute;
+        color: white;
         right: var(--s);
         top: var(--s);
     }
@@ -289,6 +298,5 @@
 
 .temp-product:hover{
     transition: 0.5s ease;
-    
     transform: scale(1.03);
 }
