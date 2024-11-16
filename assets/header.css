@@ -1,4 +1,9 @@
 .mainNavBar{
+    position: fixed; /* oder sticky, je nach Bedarf */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Höher als image-container */
     border-bottom: 2px solid var(--beigegelb);
     padding: var(--s);
     background-color: transparent;
@@ -12,6 +17,7 @@
             font-size: var(--m);
             text-decoration: none;
             color: black;
+            z-index: 1000;
         }
         a::after{
             content: '';
@@ -45,6 +51,7 @@
     right: 0;
     justify-content: center;
     padding: var(--m);
+    z-index: 1000;
     input{
         padding: var(--s);
         font-size: var(--m);
@@ -57,6 +64,7 @@
 
 .icon-container {
     position: relative; /* Positionierung für die Icons */
+    z-index: 1000; /* Höher als die image-container */
 }
 
 .icon {
