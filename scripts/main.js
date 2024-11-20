@@ -50,3 +50,36 @@ document.querySelector('.searchSymbol').addEventListener('click', () => {
         });
     });
 });
+
+/*Wenn das Element das hinter der Navibar zu dunkel ist, wird die Navibar weiß*/
+
+document.addEventListener('DOMContentLoaded', () => {
+    const navBar = document.querySelector('.mainNavBar');
+    const welcomeBanner = document.querySelector('.welcomeBanner');
+    const navLinks = document.querySelectorAll('.mainNavBar a');
+
+    //Initialstate = Banner ist sichtbar in schwarzer Schrift
+    navLinks.forEach(link => link.style.color = 'black');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                // Banner is behind navbar
+                navLinks.forEach(link => link.style.color = 'black');
+                navBar.style.backgroundColor = 'transparent';
+                console.log('Banner is behind navbar');
+            } else {
+                // Banner is visible
+                navLinks.forEach(link => link.style.color = 'white');
+                navBar.style.backgroundColor = 'transparent';
+                console.log('Banner is visible');
+            }
+        });
+    }, {
+        root: null,
+        threshold: 0,
+        rootMargin: '-40px 0px 0px 0px' // Adjust based on navbar height
+    });
+
+    observer.observe(welcomeBanner);
+});
