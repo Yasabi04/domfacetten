@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //Initialstate = Banner ist sichtbar in schwarzer Schrift
     navLinks.forEach(link => link.style.color = 'black');
+    navBar.style.backgroundColor = 'transparent';
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {

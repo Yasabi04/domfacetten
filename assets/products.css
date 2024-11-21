@@ -340,6 +340,18 @@
 }
 
 
+/*Testphase*/
+@media screen and (min-width: 768px){
+    .temp-product{
+        width: 300px;
+        .temp-image-container{
+            height: 250px;
+            width: auto;
+        }
+    }
+}
+
+
 
 .temp-product:hover{
     transition: 0.5s ease;
