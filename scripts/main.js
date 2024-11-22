@@ -58,21 +58,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const welcomeBanner = document.querySelector('.welcomeBanner');
     const navLinks = document.querySelectorAll('.mainNavBar a');
 
-    //Initialstate = Banner ist sichtbar in schwarzer Schrift
-    navLinks.forEach(link => link.style.color = 'black');
-    navBar.style.backgroundColor = 'transparent';
-
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (!entry.isIntersecting) {
                 // Banner is behind navbar
-                navLinks.forEach(link => link.style.color = 'black');
-                navBar.style.backgroundColor = 'transparent';
+                navLinks.forEach(link => link.style.color = 'white');
                 console.log('Banner is behind navbar');
             } else {
                 // Banner is visible
-                navLinks.forEach(link => link.style.color = 'white');
-                navBar.style.backgroundColor = 'transparent';
+                navLinks.forEach(link => link.style.color = 'black');
                 console.log('Banner is visible');
             }
         });
