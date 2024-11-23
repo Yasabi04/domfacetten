@@ -19,17 +19,14 @@ document.querySelector('.searchSymbol').addEventListener('click', () => {
     const input = document.createElement('input');
     input.id = "inputSearchField"
     input.type = 'text';
-    input.placeholder = 'Suche...';
+    input.placeholder = 'Wer suchet, der findet...';
 
     // Finde das Listenelement mit der Suchlupe
     const searchIcon = document.querySelector('.searchSymbol');
     //Mit parentNode wird das Elternelement von searchSymbols gesucht und gefunden
     const parentLi = searchIcon.parentNode;
 
-    // Ersetze das Symbol mit dem Input-Feld
     parentLi.replaceChild(input, searchIcon);
-
-    // Setze Fokus auf das Input-Feld. Ist optional, aber sorgt dafür, dass der Benutzer direkt loslegen kann
     input.focus();
 
     // Optional: Wenn der Benutzer aus dem Input-Feld herausklickt, wieder zur Lupe wechseln
@@ -49,32 +46,4 @@ document.querySelector('.searchSymbol').addEventListener('click', () => {
             }
         });
     });
-});
-
-/*Wenn das Element das hinter der Navibar zu dunkel ist, wird die Navibar weiß*/
-
-document.addEventListener('DOMContentLoaded', () => {
-    const navBar = document.querySelector('.mainNavBar');
-    const welcomeBanner = document.querySelector('.welcomeBanner');
-    const navLinks = document.querySelectorAll('.mainNavBar a');
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) {
-                // Banner is behind navbar
-                navLinks.forEach(link => link.style.color = 'white');
-                console.log('Banner is behind navbar');
-            } else {
-                // Banner is visible
-                navLinks.forEach(link => link.style.color = 'black');
-                console.log('Banner is visible');
-            }
-        });
-    }, {
-        root: null,
-        threshold: 0,
-        rootMargin: '-40px 0px 0px 0px' // Adjust based on navbar height
-    });
-
-    observer.observe(welcomeBanner);
 });

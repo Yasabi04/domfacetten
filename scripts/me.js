@@ -3,7 +3,7 @@ let continentalShip = JSON.parse(localStorage.getItem("continentalShip")) || [];
 console.log("Gespeicherte Produkte:", continentalShip);
 
 function displaySafedProducts() {
-  const safedSection = document.querySelector(".product-container");
+  const safedSection = document.querySelector("#product-container");
 
   if (continentalShip.length === 0 || !continentalShip) {
     safedSection.innerHTML =
@@ -40,7 +40,7 @@ function displaySafedProducts() {
 }
 
 // Event-Delegation für das Entfernen von Produkten
-document.querySelector(".product-container").addEventListener("click", (event) => {
+document.querySelector("#product-container").addEventListener("click", (event) => {
   if (event.target.classList.contains("fa-xmark")) {
     const productElement = event.target.closest(".temp-product");
     if (productElement) {

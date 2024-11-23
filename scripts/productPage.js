@@ -12,7 +12,7 @@ function generateHTML(products) {
   return products
     .map(
       (product) => `
-            <section class="temp-product"
+            <section class="temp-product slideInRight"
               data-artnr="${product.ArtNr}"
               data-farben="${product.Farbe}"
               data-preis="${product.Preis}"
