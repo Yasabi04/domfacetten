@@ -4,37 +4,54 @@
   align-items: center;
   flex-direction: row;
   margin-top: var(--xl);
-  padding: var(--l);
-  .image-wrapper{    
+  padding-left: var(--xxl);
+  padding-right: var(--xxl);
+  .image-wrapper{ 
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
     img{
-        width: 100%;
+        width: 70%;
         height: 100%;
+        object-fit: cover;
     }
   }
   .productDetails{
-    border: 5px solid rgb(189, 10, 10);
+    background-color: white;
     min-width: 35%;
-    padding-left: var(--s);
     h1{
         padding-left: var(--s);
         font-size: var(--l);
+        font-style: italic;
+    }
+    hr{
+        color: var(--beigegelb);
+        margin-top: var(--l);
+        margin-bottom: var(--m);
     }
     p{
         font-size: var(--m);
     }
-    .amountAndPrice{
-        position: relative;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        :nth-child(2)::after{
-            content: "inkl. Mwst.";
-            font-size: var(--s);
-            color: grey;
-            position:absolute;
-            right: var(--xs);
-            bottom: 0;
-        }
-    }	
+    .fakeSelect{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .spaceBetween{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      i{
+        scale: 1.3;
+      }
+    }
+    
   }
+}
+
+.finalPrice{
+  font-size: var(--l);
+  font-weight: bold;
+  color: var(--beigegelb);
 }
