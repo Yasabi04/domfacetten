@@ -55,3 +55,28 @@
   font-weight: bold;
   color: var(--beigegelb);
 }
+
+@media (max-width: 1080px) {
+  .singleProduct {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: var(--s);
+    padding-right: var(--s);
+    .image-wrapper{
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .productDetails{
+      min-width: 100%;
+      h1{
+        font-size: var(--m);
+      }
+      p{
+        font-size: var(--s);
+      }
+    }
+  }
+}
