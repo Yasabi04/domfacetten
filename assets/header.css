@@ -84,34 +84,38 @@
     }
 }
 
-.icon-container {
-    position: relative; /* Positionierung für die Icons */
-    z-index: 1000; /* Höher als die image-container */
+
+aside{
+    display: none;
 }
 
-.icon {
-    position: absolute; /* Absolute Positionierung */
-    width: 100%; /* Größe anpassen */
-    height: 100%; /* Größe anpassen */
-    transition: opacity 0.3s ease; /* Sanfter Übergang */
-}
-
-/* Standardzustand: kleines Icon sichtbar */
-.icon-small {
-    opacity: 1; /* Sichtbar */
-}
-
-.icon-huge {
-    opacity: 0; /* Unsichtbar */
-}
-
-/* Media Query für größere Bildschirme */
-@media (min-width: 768px) {
-    .icon-small {
-        opacity: 0; /* Unsichtbar */
-    }
-
-    .icon-large {
-        opacity: 1; /* Sichtbar */
+@media screen and (max-width: 768px){
+    aside{
+        display: block;
+        position: fixed;
+        top: var(--xxl);
+        right: 0;
+        .placeholder{
+            height: 100%;
+            width: 100px;
+            background-color: var(--complBeigegelb);
+            right: -50px;
+            position: relative;
+            .burger{
+                position: absolute;
+                top: 0;
+                right: 100px;
+                font-size: var(--l);
+                padding-right: var(--s);
+                color: var(--beigegelb);
+                background-color: var(--complBeigegelb);
+                backdrop-filter: blur(30px);
+            }
+            .mobileViewHeaderContent{
+                ul{
+                    list-style-type: none;
+                }
+            }
+        }
     }
 }
