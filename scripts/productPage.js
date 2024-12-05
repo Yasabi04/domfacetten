@@ -1,6 +1,7 @@
 // Hole das gespeicherte Produkt-Array aus dem localStorage
 let continentalShip = JSON.parse(localStorage.getItem("continentalShip")) || [];
 
+
 // Setze die Produkte in localStorage
 function updateLocalStorage() {
   localStorage.setItem("continentalShip", JSON.stringify(continentalShip));
@@ -38,7 +39,6 @@ function generateHTML(products) {
     )
     .join("");
 }
-
 
 // Überprüfen, ob ein Produkt gespeichert ist
 function isProductSaved(artnr) {
@@ -88,6 +88,7 @@ fetch("./products.csv")
       });
     });
   });
+
 
 // Funktion zum Parsen des CSV
 function parseCSV(csv, delimiter = ",") {
@@ -146,3 +147,5 @@ function parseCSV(csv, delimiter = ",") {
             }</span>
         </article>
 */
+
+

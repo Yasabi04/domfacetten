@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Helvetica', sans-serif;
 }
 
 header{
@@ -10,7 +11,6 @@ header{
 }
 
 body{
-    font-family: 'Rufina', serif;
     background-image: url(../images/DomMuster.png);
 }
 

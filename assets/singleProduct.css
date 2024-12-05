@@ -1,0 +1,40 @@
+.singleProduct {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-top: var(--xl);
+  padding: var(--l);
+  .image-wrapper{    
+    img{
+        width: 100%;
+        height: 100%;
+    }
+  }
+  .productDetails{
+    border: 5px solid rgb(189, 10, 10);
+    min-width: 35%;
+    padding-left: var(--s);
+    h1{
+        padding-left: var(--s);
+        font-size: var(--l);
+    }
+    p{
+        font-size: var(--m);
+    }
+    .amountAndPrice{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        :nth-child(2)::after{
+            content: "inkl. Mwst.";
+            font-size: var(--s);
+            color: grey;
+            position:absolute;
+            right: var(--xs);
+            bottom: 0;
+        }
+    }	
+  }
+}

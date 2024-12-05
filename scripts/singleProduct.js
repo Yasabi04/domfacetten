@@ -1,7 +1,5 @@
-//Hole das Produkt mit den Daten aus dem localStorage
+//Hole das Produkt das in spaceship gespeichert wurde und zeige es auf der singleProduct.html Seite an
 
-const a = JSON.stringify(localStorage.getItem('selectedProduct'));
+const cargoDelivery = JSON.parse(".localStorage.getItem('cargoShip')") || [];
 
-console.log(a);
-
-
+console.log(cargoDelivery);
