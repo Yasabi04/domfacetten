@@ -18,10 +18,11 @@
     }
   }
   .productDetails{
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     min-width: 35%;
     h1{
         padding-left: var(--s);
+        padding-top: var(--m);
         font-size: var(--l);
         font-style: italic;
     }
@@ -53,7 +54,6 @@
 .finalPrice{
   font-size: var(--l);
   font-weight: bold;
-  color: var(--beigegelb);
 }
 
 @media (max-width: 1080px) {
@@ -73,10 +73,24 @@
       min-width: 100%;
       h1{
         font-size: var(--m);
+
       }
       p{
         font-size: var(--s);
       }
+      .finalPrice{
+        font-size: var(--m);
+      }
     }
   }
+}
+
+.buy{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  background-color: rgb(246, 255, 0);
+  font-style: italic;
 }
