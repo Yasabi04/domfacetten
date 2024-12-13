@@ -12,3 +12,17 @@
     transform: translateY(0);
   }
 }
+
+.autoFadeIn {
+  animation: autoFadeIn;
+  animation-timeline: view();
+}
+
+@keyframes autoFadeIn {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
