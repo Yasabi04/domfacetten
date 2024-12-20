@@ -57,34 +57,6 @@
   font-weight: bold;
 }
 
-@media (max-width: 1080px) {
-  .singleProduct {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding-left: var(--s);
-    padding-right: var(--s);
-    .image-wrapper{
-      img{
-        width: 100%;
-        height: 100%;
-      }
-    }
-    .productDetails{
-      min-width: 100%;
-      h1{
-        font-size: var(--m);
-      }
-      p{
-        font-size: var(--s);
-      }
-      .finalPrice{
-        font-size: var(--m);
-      }
-    }
-  }
-}
-
 .buy{
   width: 100%;
   display: flex;
@@ -112,10 +84,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    overflow: hidden;
     .leftArrow{
       display: flex;
       justify-content: center;
       height: 100%;
+      z-index: 10;
       align-items: center;
       background-color: var(--complBeigegelb);
       padding-left: var(--m);
@@ -127,6 +101,7 @@
     }
     .rightArrow{
       display: flex;
+      z-index: 10;
       justify-content: center;
       height: 100%;
       background-color: var(--complBeigegelb);
@@ -144,7 +119,7 @@
       display: flex;
       justify-content: flex-start;
       align-items: center;
-      overflow: hidden;
+      /* overflow: hidden;   */
       background-color: transparent;
       transition: transform 0.3s ease-in-out;
       .smallProduct{
@@ -154,7 +129,7 @@
         align-items: center;
         width: auto;
         height: 30vh;
-        background-color: rgb(182, 22, 22);
+        background-color: rgb(255, 255, 255);
         flex-shrink: 0;
         margin-right: var(--s);
         overflow: hidden;
@@ -169,7 +144,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-          }          
+          }
         }
         .productInfo{
           padding: var(--s);
@@ -184,4 +159,44 @@
       }
     }
   }
+}
+
+.smallProduct:hover{
+  transform: scale(1.03);
+  transition:  0.3s ease-in-out;
+}
+
+@media (max-width: 1080px) {
+  .singleProduct {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: var(--s);
+    padding-right: var(--s);
+    .image-wrapper{
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .productDetails{
+      min-width: 100%;
+      h1{
+        font-size: var(--m);
+      }
+      p{
+        font-size: var(--s);
+      }
+      .finalPrice{
+        font-size: var(--m);
+      }
+    }
+  }
+  .productCaroussel{
+    overflow: scroll;
+    scrollbar-width: none;
+  }
+  /* .rightArrow, .leftArrow{
+    display: none;
+  } */
 }
