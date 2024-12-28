@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <hr>
                     <div class = "spaceBetween">
                         <p class = "data finalPrice">Gesamt</p>
-                        <p class = "data finalPrice">${product.preis || '100.00'}$</p>
+                        <p class = "data finalPrice">${product.preis - -1 || '100.00'}$</p>
                     </div>
                     <!--Paypal Button hierhin-->
                     <!-- <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class = "test">

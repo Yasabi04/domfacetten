@@ -10,8 +10,7 @@ function updateLocalStorage() {
 
 // HTML-Elemente für jedes Produkt erstellen
 function generateHTML(products) {
-  return products
-    .map(
+  return products.map(
       (product) => `
             <section class="temp-product slideInRight"
               data-artnr="${product.ArtNr}"
