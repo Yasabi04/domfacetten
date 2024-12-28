@@ -18,7 +18,8 @@ function generateHTML(products) {
               data-farben="${product.Farbe}"
               data-preis="${product.Preis}"
               data-bezeichnung="${product.Bezeichnung}"
-              data-foto="${product.Foto}">
+              data-foto="${product.Foto}"
+              data-available="${product.Available}">
                 <a href="singleProduct.html">
                   <div class="temp-image-container">
                       <img src="${product.Foto}" alt="${product.ArtNr}">
@@ -69,6 +70,7 @@ fetch("./products.csv")
             bezeichnung: productSection.getAttribute("data-bezeichnung"),
             farben: productSection.getAttribute("data-farben"),
             foto: productSection.getAttribute("data-foto"),
+            available: productSection.getAttribute("data-available")
           };
 
           // Produkt zur Liste hinzufügen
@@ -99,6 +101,7 @@ fetch("./products.csv")
           bezeichnung: productSection.getAttribute("data-bezeichnung"),
           farben: productSection.getAttribute("data-farben"),
           foto: productSection.getAttribute("data-foto"),
+          available: productSection.getAttribute("data-available")
         };
 
         spaceship.push(productData);

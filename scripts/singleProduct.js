@@ -100,7 +100,7 @@ function displayWantedProduct() {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    
+
     function displayWantedProduct() {
         const safedSection = document.querySelector(".container"); // Fixed selector
         
@@ -125,6 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     data-farben="${product.Farbe}"
                     data-preis="${product.Preis}"
                     data-bezeichnung="${product.Bezeichnung}"
+                    data-available="${product.Available}"
                 >
                     <h1 class = "test">${product.bezeichnung || 'Eigentlich sollte hier etwas anderes stehen...'}</h1>
                     <hr>
@@ -133,14 +134,20 @@ document.addEventListener("DOMContentLoaded", () => {
                             <i class="fa-regular fa-circle-dot"></i>
                             <p>Menge: 1. Stk</p>
                         </div>
-                        <p class = "data">${product.preis || '0.00'}$</p> 
+                        <p class = "data">${product.preis || '100.00'}$</p> 
                     </div>
                     <div class = "spaceBetween">
                         <div class = "fakeSelect">
                             <i class="fa-solid fa-question"></i>
                             <p>Verfügbarkeit</p>
                         </div>
-                        <p><i class = "fa-solid fa-check"></i><i class="fa-solid fa-xmark"></i></p>
+                        <p>${
+                            product.available === 'true'
+                                ? '<i class = "fa-solid fa-check"></i>'
+                                :product.available === 'false'
+                                    ? '<i class = "fa-solid fa-xmark"></i>'
+                                    : '<i class = "fa-solid fa-question"></i>'
+                        }</p>
                     </div>
                     <div class = "spaceBetween">
                         <div class = "fakeSelect">
@@ -175,7 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
             
             safedSection.innerHTML = productsHTML;
         } else {
-            console.error("No product found in localStorage");
+            console.error("Aus irgendeinem Grund wurde kein Produkt gefunden");
         }
     }
     
