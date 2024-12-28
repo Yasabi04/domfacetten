@@ -70,3 +70,115 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', updateArrows);
 });
 
+
+
+
+
+let spaceship = JSON.parse(localStorage.getItem("spaceship")) || [];
+spaceship = spaceship[spaceship.length - 1];
+
+
+// Letztes Produkt im spaceship anzeigen
+
+console.log("Gespeicherte Produkte:", spaceship);
+
+document.addEventListener("DOMContentLoaded", () => {
+    // HTML-Elemente für jedes Produkt erstellen
+function displayWantedProduct() {
+    const safedSection = document.querySelector("container");
+    console.log("Letztes Produkt:", spaceship);
+  
+    const productsHTML = spaceship.map(product => `
+            <section class = "singleProduct">
+                
+            </section>
+          `
+      ).join("");
+  
+    safedSection.innerHTML = productsHTML;
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    
+    function displayWantedProduct() {
+        const safedSection = document.querySelector(".container"); // Fixed selector
+        
+        // Get the spaceship data
+        let spaceship = JSON.parse(localStorage.getItem("spaceship")) || [];
+        // If we want to show only the last product, wrap it in an array
+        const productToShow = [spaceship[spaceship.length - 1]];
+        
+        console.log("Product to display:", productToShow);
+        
+        // Only proceed if we have a product to show
+        if (productToShow[0]) {
+            const productsHTML = productToShow.map(product => `
+                <section class="singleProduct">
+                    <div class = "image-wrapper"
+                    data-foto="${product.foto}"
+                >
+                    <img src="${product.foto || ''}" alt="Produktbild">
+                </div>
+                <div class = "productDetails"
+                    data-artnr="${product.ArtNr}"
+                    data-farben="${product.Farbe}"
+                    data-preis="${product.Preis}"
+                    data-bezeichnung="${product.Bezeichnung}"
+                >
+                    <h1 class = "test">${product.bezeichnung || 'Eigentlich sollte hier etwas anderes stehen...'}</h1>
+                    <hr>
+                    <div class = "spaceBetween">
+                        <div class = "fakeSelect">
+                            <i class="fa-regular fa-circle-dot"></i>
+                            <p>Menge: 1. Stk</p>
+                        </div>
+                        <p class = "data">${product.preis || '0.00'}$</p> 
+                    </div>
+                    <div class = "spaceBetween">
+                        <div class = "fakeSelect">
+                            <i class="fa-solid fa-question"></i>
+                            <p>Verfügbarkeit</p>
+                        </div>
+                        <p><i class = "fa-solid fa-check"></i><i class="fa-solid fa-xmark"></i></p>
+                    </div>
+                    <div class = "spaceBetween">
+                        <div class = "fakeSelect">
+                            <i class="fa-solid fa-truck"></i>
+                            <p>Lieferzeit</p>
+                        </div>
+                        <p class = "data">3-5 Tage</p>
+                    </div>
+                    <div class = "spaceBetween">
+                        <div class = "fakeSelect">
+                            <i class="fa-solid fa-box"></i>
+                            <p>Versandkosten</p>
+                        </div>
+                        <p class = "data">1.00$</p>
+                    </div>
+                    <hr>
+                    <div class = "spaceBetween">
+                        <p class = "data finalPrice">Gesamt</p>
+                        <p class = "data finalPrice">${product.preis || '100.00'}$</p>
+                    </div>
+                    <!--Paypal Button hierhin-->
+                    <!-- <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class = "test">
+                        <input type="hidden" name="cmd" value="_s-xclick" />
+                        <input type="hidden" name="hosted_button_id" value="FDETVFV9MSQ7A" />
+                        <input type="hidden" name="currency_code" value="EUR" />
+                        <input type="image" src="https://www.paypalobjects.com/de_DE/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" title="PayPal – Einfacher und sicherer online bezahlen." alt="Jetzt kaufen" />
+                    </form> -->
+                    <div class = "buy">Jetzt mit Paypal kaufen!</div>
+                </div>
+                </section>
+            `).join("");
+            
+            safedSection.innerHTML = productsHTML;
+        } else {
+            console.error("No product found in localStorage");
+        }
+    }
+    
+    // Don't forget to actually call the function
+    displayWantedProduct();
+});

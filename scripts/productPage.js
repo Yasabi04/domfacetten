@@ -1,14 +1,14 @@
 // Hole das gespeicherte Produkt-Array aus dem localStorage
-let continentalShip = JSON.parse(localStorage.getItem("continentalShip")) || [];
-
+let continentalShip = JSON.parse(localStorage.getItem("continentalShip")) || []
+let spaceship = JSON.parse(localStorage.getItem("spaceship")) || []
 
 // Setze die Produkte in localStorage
 function updateLocalStorage() {
   localStorage.setItem("continentalShip", JSON.stringify(continentalShip));
+  localStorage.setItem("spaceship", JSON.stringify(spaceship));
 }
 
 // HTML-Elemente für jedes Produkt erstellen
-
 function generateHTML(products) {
   return products
     .map(
@@ -84,6 +84,24 @@ fetch("./products.csv")
         }
         
         // Aktualisiere die localStorage-Daten
+        updateLocalStorage();
+      });
+    });
+
+    // Event-Listener für die restliche Produkt-Card
+    document.querySelectorAll(".temp-product").forEach((productElement) => {
+      productElement.addEventListener("click", (event) => {
+        const productSection = event.currentTarget.closest(".temp-product");
+
+        const productData = {
+          artnr: productSection.getAttribute("data-artnr"),
+          preis: productSection.getAttribute("data-preis"),
+          bezeichnung: productSection.getAttribute("data-bezeichnung"),
+          farben: productSection.getAttribute("data-farben"),
+          foto: productSection.getAttribute("data-foto"),
+        };
+
+        spaceship.push(productData);
         updateLocalStorage();
       });
     });
