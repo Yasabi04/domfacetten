@@ -3,7 +3,7 @@
     animation-timeline: view();
 }
 
-@keyframes slideInRight {
+/* @keyframes slideInRight {
   0% {
     transform: translateY(100%);
   }
@@ -11,7 +11,7 @@
   100% {
     transform: translateY(0);
   }
-}
+} */
 
 .autoFadeIn {
   animation: autoFadeIn;
