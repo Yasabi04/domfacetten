@@ -117,9 +117,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 <section class="singleProduct">
                     <div class = "image-wrapper"
                     data-foto="${product.foto}"
-                >
-                    <img src="${product.foto || ''}" alt="Produktbild">
-                </div>
+                    data-available="${product.Available}"
+                    >
+                        <p>
+                        ${
+                            product.available === 'false'
+                            ? '<img class="test" src="' + product.foto + '" style="filter: grayscale(100%);" alt="Produktbild">'
+                                : '<img class="test" src="' + product.foto + '" alt="Produktbild">'
+                        }
+                        </p>
+                    </div>
                 <div class = "productDetails"
                     data-artnr="${product.ArtNr}"
                     data-farben="${product.Farbe}"
@@ -127,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     data-bezeichnung="${product.Bezeichnung}"
                     data-available="${product.Available}"
                 >
-                    <h1 class = "test">${product.bezeichnung || 'Eigentlich sollte hier etwas anderes stehen...'}</h1>
+                    <h1 class = "test">${product.bezeichnung || 'Eigentlich sollte hier der Name stehen...'}</h1>
                     <hr>
                     <div class = "spaceBetween">
                         <div class = "fakeSelect">
@@ -143,9 +150,9 @@ document.addEventListener("DOMContentLoaded", () => {
                         </div>
                         <p>${
                             product.available === 'true'
-                                ? '<i class = "fa-solid fa-check"></i>'
+                                ? '<i class = "fa-solid fa-check" style="color: green"></i>'
                                 :product.available === 'false'
-                                    ? '<i class = "fa-solid fa-xmark"></i>'
+                                    ? '<i class = "fa-solid fa-xmark" style="color: red"></i>'
                                     : '<i class = "fa-solid fa-question"></i>'
                         }</p>
                     </div>
@@ -186,6 +193,5 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
     
-    // Don't forget to actually call the function
     displayWantedProduct();
 });

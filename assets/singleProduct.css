@@ -4,12 +4,12 @@
   align-items: center;
   flex-direction: row;
   margin-top: var(--xl);
-  padding-left: var(--xxl);
+  padding-left: var(--xl);
   padding-right: var(--xxl);
   padding-bottom: var(--xl);
   .image-wrapper{ 
     width: 100%;
-    height: 100%;
+    height: 70%;
     display: flex;
     justify-content: center;
     img{
@@ -87,6 +87,7 @@
     align-items: center;
     overflow: hidden;
     background-color: rgb(237, 237, 237); 
+    z-index: 0;
     .leftArrow{
       display: flex;
       justify-content: center;
