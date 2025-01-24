@@ -190,7 +190,7 @@
       }
     }
     .productDetails{
-      min-width: 100%;
+      min-width: 95%;
       h1{
         font-size: var(--m);
       }
