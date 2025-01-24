@@ -44,9 +44,9 @@
 }
 
 .productOverview{
-
     position: relative;
     z-index: 0;
+    margin-top: 10vh;	/* Abstand von Gespeichert nach oben */
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -86,7 +86,32 @@
         margin-bottom: var(--m);
         font-size: var(--l);
         letter-spacing: .5;
+        span{
+            margin: var(--s);
+        }
     }
+}
+
+.fa-circle-info{
+    position: relative;
+}
+
+.fa-circle-info:hover::after {
+    content: "Leider ist es derzeit nur möglich, nur ein Produkt auf einmal zu kaufen. Wir arbeiten daran, diese Funktion zu verbessern.";
+    position: absolute;
+    bottom: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    color: white;
+    padding: 8px;
+    border-radius: var(--xs);
+    font-size: var(--s);
+    white-space: nowrap;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 /*

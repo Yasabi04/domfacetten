@@ -36,7 +36,7 @@
             margin-right: var(--l);
         }
         
-        li:nth-child(5){
+        li:last-child{
             margin-left: auto;
         }
     }
@@ -44,25 +44,6 @@
         padding-left: var(--s);
     }
 }
-
-/*
-#searchBar{
-    display: flex;
-    position: absolute;
-    right: 0;
-    justify-content: center;
-    padding: var(--m);
-    z-index: 1000;
-    input{
-        padding: var(--s);
-        font-size: var(--m);
-        border: none;
-        border-radius: var(--xs);
-        background-color: var(--beigegelb);
-        border-color: var(--beigegelb);
-    }
-}
-*/
 
 .searchSymbol{
     padding: var(--m);
