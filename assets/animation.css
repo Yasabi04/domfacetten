@@ -26,3 +26,22 @@
     opacity: 1;
   }
 }
+
+
+@keyframes glowing{
+  0%{
+    box-shadow: 0 0 50px 0 rgba(255, 200, 0, 0.5)
+  }
+  25%{
+    box-shadow: 0 0 50px 0 rgba(255, 0, 0, 0.5);
+  }
+  50%{
+    box-shadow: 0 0 50px 0 rgba(163, 47, 4, 0.5);
+  }
+  75%{
+    box-shadow: 0 0 50px 0 rgba(166, 0, 255, 0.5)
+  }
+  100%{
+    box-shadow: 0 0 50px 0 rgba(255, 166, 0, 0.5)
+  }
+}

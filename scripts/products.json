@@ -1,0 +1,25 @@
+{
+    "products": [
+        {
+            "image": "image1.jpg",
+            "artnr": "12345",
+            "name": "Product 1",
+            "colors": ["red", "blue", "green"],
+            "price": 19.99
+        },
+        {
+            "image": "image2.jpg",
+            "artnr": "67890",
+            "name": "Product 2",
+            "colors": ["yellow", "black"],
+            "price": 29.99
+        },
+        {
+            "image": "image3.jpg",
+            "artnr": "54321",
+            "name": "Product 3",
+            "colors": ["white", "purple"],
+            "price": 39.99
+        }
+    ]
+}

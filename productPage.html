@@ -28,6 +28,7 @@
                 <li><a href="productPage.html">Alle Produkte</a></li>
                 <li><a href="me.html" id="me">Mein Bereich</a></li>
                 <li><span class="searchSymbol"><i class="fas fa-search"></i></span></li>
+                <!-- <li><span class = "lightDark"><i class="fa-solid fa-lightbulb"></i></span></li> Vielleicht für einen zuk. Darkmode-Switch-->
             </ul>
         </nav>
         <aside>
@@ -39,7 +40,7 @@
                     <ul>
                         <li><a href="productPage.html">Alle Produkte</a></li>
                         <li><a href="me.html" id="me">Mein Bereich</a></li>
-                        <li><span class="searchSymbol">Suche<i class="fas fa-search"></i></span></li>
+                        <li><span class="searchSymbol"><i class="fas fa-search"></i></span></li>
                     </ul>
                 </div> 
             </div>
@@ -64,7 +65,26 @@
                 <span>Domfacetten.<br>Schmuck mit Herz, made in Köln.</span>
             </div>
             <h1>New In</h1>
-            <article>Maybe Todo</article>
+            <div id="newIn">
+
+
+                <section class="temp-product special">
+                <a href="singleProduct.html">
+                  <div class="temp-image-container">
+                      <img src="./images/ArmbandGold.jpg" alt="${product.ArtNr}">
+                  </div>
+                  <div class="temp-product-text">
+                    <h2>Special Armband</h2>
+                    <p class="temp-colour">4402</p>
+                    <p class="temp-price">90.00$</p>
+                  </div>
+                </a>
+                <span class="temp-star" role="button" tabindex="0"></span>
+            </section>
+
+
+
+            </div>
             <h1>Alle Produkte</h1>
             <div id="product-container"></div>
         </section>

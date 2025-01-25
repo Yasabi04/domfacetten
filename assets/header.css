@@ -54,14 +54,13 @@
 #inputSearchField{
     padding: var(--s);
     font-size: var(--m);
-    color: var(--beigegelb);
+    color: var(--complBeigegelb);
     border: none;
-    border-radius: var(--xs);
-    border-color: var(--beigegelb);
+    border-color: var(--complBeigegelb);
     &:focus{
         outline: none;
-        background-color: transparent;
-        border-bottom: 2px solid var(--beigegelb);
+        background: transparent;
+        border-bottom: 2px solid var(--complBeigegelb);
     }
 }
 

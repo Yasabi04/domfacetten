@@ -1,3 +1,5 @@
+
+
 // Hole das gespeicherte Produkt-Array aus dem localStorage
 let continentalShip = JSON.parse(localStorage.getItem("continentalShip")) || []
 let spaceship = JSON.parse(localStorage.getItem("spaceship")) || []
@@ -167,5 +169,3 @@ function parseCSV(csv, delimiter = ",") {
             }</span>
         </article>
 */
-
-

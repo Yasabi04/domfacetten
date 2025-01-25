@@ -19,7 +19,7 @@ document.querySelector('.searchSymbol').addEventListener('click', () => {
     const input = document.createElement('input');
     input.id = "inputSearchField"
     input.type = 'text';
-    input.placeholder = 'Wer suchet, der findet...';
+    input.placeholder = 'Suche';
 
     // Finde das Listenelement mit der Suchlupe
     const searchIcon = document.querySelector('.searchSymbol');
@@ -35,7 +35,7 @@ document.querySelector('.searchSymbol').addEventListener('click', () => {
     });
     inputSearchField.addEventListener('input', function() {
         const searchValue = inputSearchField.value.toLowerCase();
-        const products = document.querySelectorAll('.productCard');
+        const products = document.querySelectorAll('.temp-product');
 
         products.forEach(product => {
             const productName = product.querySelector('h2').textContent.toLowerCase();

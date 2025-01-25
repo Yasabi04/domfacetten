@@ -349,7 +349,7 @@
             width: 90%;
             padding-left: 0;
             padding-bottom: 0;
-            text-transform: uppercase;
+            /* text-transform: inherit; Hier kann zwischen Uppercase/Lowercase gewählt werden */
         }
         .temp-colour{
             font-weight: 300;
@@ -387,4 +387,29 @@
 .temp-product:hover{
     transition: 0.5s ease;
     transform: scale(1.03);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* New In */
+
+
+
+
+
+
+
+
+.special{
+    animation: glowing 4s infinite;
 }
