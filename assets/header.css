@@ -74,12 +74,11 @@ aside{
         display: block;
         position: fixed;
         top: var(--xxl);
-        right: -121px;
+        right: -180px;
         transition: transform 0.3s ease-in-out;
         .placeholder{
             height: 100%;
             width: 100%;
-            background-color: var(--complBeigegelb);
             right: 0px;
             position: relative;
             a{
@@ -100,8 +99,22 @@ aside{
                 background-color: var(--complBeigegelb);
             }
             .mobileViewHeaderContent{
+                background-color: var(--complBeigegelb);
+                border: 2px solid var(--beigegelb);
+                border-bottom-left-radius: var(--m);
                 ul{
                     list-style-type: none;
+                    li{
+                        padding: var(--s);
+                        font-size: var(--m);
+                        a{
+                            color: var(--beigegelb);
+                            text-decoration: none;
+                        }
+                        span{
+                            color: var(--beigegelb);
+                        }
+                    }
                 }
             }
         }

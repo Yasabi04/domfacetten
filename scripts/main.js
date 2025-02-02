@@ -51,13 +51,16 @@ document.querySelector('.searchSymbol').addEventListener('click', () => {
 
 document.querySelector('.burger').addEventListener('click', () => {
     const aside = document.querySelector('aside');
+    const burgerPatties = document.querySelector('.burger');
     if(!aside.classList.contains('open')) {
-        aside.style.transform = 'translateX(-121px)';
+        aside.style.transform = 'translateX(-176px)';
         aside.classList.add('open');
+        burgerPatties.innerHTML = '<i class="fa-solid fa-x"></i>';
         return;
     }
     else {
-        aside.style.transform = 'translateX(0)';
+        aside.style.transform = 'translateX(0px)';
+        burgerPatties.innerHTML = '<i class="fa-solid fa-bars">';
         aside.classList.remove('open');
     }
 });
