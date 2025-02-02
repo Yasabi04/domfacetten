@@ -74,22 +74,30 @@ aside{
         display: block;
         position: fixed;
         top: var(--xxl);
-        right: 0;
+        right: -121px;
+        transition: transform 0.3s ease-in-out;
         .placeholder{
             height: 100%;
-            width: 100px;
+            width: 100%;
             background-color: var(--complBeigegelb);
-            right: -50px;
+            right: 0px;
             position: relative;
+            a{
+                color: white;
+                text-decoration: none;
+                padding: var(--s);
+            }
             .burger{
                 position: absolute;
                 top: 0;
-                right: 100px;
+                right: 100%;
                 font-size: var(--l);
-                padding-right: var(--s);
+                padding: var(--s);
+                border: 2px solid var(--beigegelb);
+                border-top-left-radius: var(--m);
+                border-bottom-left-radius: var(--m);
                 color: var(--beigegelb);
                 background-color: var(--complBeigegelb);
-                backdrop-filter: blur(30px);
             }
             .mobileViewHeaderContent{
                 ul{
@@ -97,5 +105,12 @@ aside{
                 }
             }
         }
+    }
+    
+    aside.open{
+        animation: slideRight 0.3s ease-in-out;
+    }
+    aside.closed{
+        animation: slideLeft 0.3s ease-in-out;
     }
 }

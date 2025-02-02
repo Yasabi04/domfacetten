@@ -45,3 +45,22 @@
     box-shadow: 0 0 50px 0 rgba(255, 166, 0, 0.5)
   }
 }
+
+
+@keyframes slideRight{
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-121px);
+  }
+}
+
+@keyframes slideLeft{
+  from {
+    transform: translateX(-121px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

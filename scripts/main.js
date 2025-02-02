@@ -47,3 +47,17 @@ document.querySelector('.searchSymbol').addEventListener('click', () => {
         });
     });
 });
+
+
+document.querySelector('.burger').addEventListener('click', () => {
+    const aside = document.querySelector('aside');
+    if(!aside.classList.contains('open')) {
+        aside.style.transform = 'translateX(-121px)';
+        aside.classList.add('open');
+        return;
+    }
+    else {
+        aside.style.transform = 'translateX(0)';
+        aside.classList.remove('open');
+    }
+});
