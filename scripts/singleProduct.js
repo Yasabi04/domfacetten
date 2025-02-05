@@ -35,12 +35,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class = "available-text">Verfügbarkeit</div>
                         <div class = "lorry-text">Lieferung</div>
                         <div class = "parcel-text">Versandkosten</div>
-                        <div class = "amount-number">19.00 &euro;</div>
+                        <div class = "amount-number">${product.price} &euro;</div>
                         <div class = "available-number"><i class="fa-solid fa-check"></i></div>
                         <div class = "lorry-number">3-5 Tage</div>
                         <div class = "parcel-number">1.00 &euro;</div>
+                        <div class = "divisor"><hr></div>
                         <div class = "total-text">Gesamt</div>
-                        <div class = "total-number">10</div>
+                        <div class = "total-number">${product.price + 1}</div>
                     </div>
                     
                     <!--Paypal Button hierhin-->

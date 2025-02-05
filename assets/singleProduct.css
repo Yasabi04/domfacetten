@@ -171,7 +171,7 @@
 }
 
 .rightArrow:hover, .leftArrow:hover{
-  opacity: 1;;
+  opacity: 1;
 }
 
 @media (max-width: 1080px) {
@@ -250,7 +250,8 @@
     "available-icon available-text available-number"
     "lorry-icon lorry-text lorry-number"
     "parcel-icon parcel-text parcel-number"
-    "total-text total-text total-number";
+    "divisor divisor divisor"
+    "total-text total-text total-number";    
 }
 
 /* Grid items */
@@ -270,6 +271,8 @@
 .parcel-text { grid-area: parcel-text; }
 .parcel-number { grid-area: parcel-number; }
 
+.divisor { grid-area: divisor; }
+
 .total-text { grid-area: total-text; }
 .total-number { grid-area: total-number; }
 
@@ -287,7 +290,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  color: silver;
+  color: black;
   font-size: var(--m);
   width: 100%
 }
@@ -299,4 +302,10 @@
   color: black;
   font-size: var(--m);
   width: 100%
+}
+
+.divisor{
+  background-color: var(--complBeigegelb);
+  height: 1px;
+  display: ruby
 }
