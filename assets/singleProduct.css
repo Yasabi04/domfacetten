@@ -214,15 +214,20 @@
 .images{
   list-style-type: none;
   li{
-    padding: var(--s);
+    margin: var(--m);
     img{
       width: 100px;
       height: 100px;
       object-fit: cover;
     }
-  }
-  :hover{
-    animation: a 0.5s forwards;
+    :hover{
+      animation: a 0.5s forwards;
+    }
+    img.selected{
+      outline: var(--2xs) solid var(--beigegelb);
+      outline-offset: 0;
+      transform: translateX(var(--s))
+    }
   }
 }
 

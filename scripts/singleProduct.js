@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <ul class = "images">
                     <li class  = "miniImage" id = "1"><img src="./images/products/ABRotWeiß_1.jpg" alt="Test"></li>
                     <li class  = "miniImage" id = "2"><img src="./images/products/ABRotWeiß_1.jpg" alt="Test"></li>
-                    <li class  = "miniImage" id = "3"><img src="./images/products/ABRotWeiß_1.jpg" alt="Test"></li>
+                    <li class  = "miniImage" id = "3"><img src="./images/products/ABRotWeiß_1.jpg" alt="Test"></liclass>
                 </ul>
                     <div class = "image-wrapper"
                     data-foto="${product.foto}"
@@ -204,10 +204,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 function presentNewImage(){
-    document.querySelectorAll('.miniImage').forEach(image => {
-        image.addEventListener('click', () => {
-            const productImage = document.querySelector('.productImage img');
-            productImage.src = image.querySelector('img').src;
-        });
-    });
+    const images = document.querySelectorAll(".images li img")
+
+    images.forEach(img => {
+        img.addEventListener('click', () => {
+            images.forEach(i => i.classList.remove("selected"));
+            img.classList.add("selected")
+        })
+    })
 }
