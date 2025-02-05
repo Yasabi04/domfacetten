@@ -209,6 +209,8 @@ function presentNewImage(){
     images.forEach(img => {
         img.addEventListener('click', () => {
             images.forEach(i => i.classList.remove("selected"));
+            const mainImage = document.querySelector('.productImage img');
+            mainImage.src = img.src;
             img.classList.add("selected")
         })
     })
