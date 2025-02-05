@@ -115,6 +115,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (productToShow[0]) {
             const productsHTML = productToShow.map(product => `
                 <section class="singleProduct">
+                <ul class = "images">
+                    <li id = "1"><img src="./images/products/ABRotWeiß_1.jpg" alt="Test"></li>
+                    <li id = "2"><img src="./images/products/ABRotWeiß_1.jpg" alt="Test"></li>
+                    <li id = "3"><img src="./images/products/ABRotWeiß_1.jpg" alt="Test"></li>
+                </ul>
                     <div class = "image-wrapper"
                     data-foto="${product.foto}"
                     data-available="${product.Available}"
