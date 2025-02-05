@@ -3,19 +3,17 @@
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  margin-top: var(--xl);
-  padding-left: var(--xl);
-  padding-right: var(--xxl);
-  padding-bottom: var(--xl);
+  padding-top: var(--xl);
   .image-wrapper{ 
     width: 80vh;
     height: 80vh;
     display: flex;
     justify-content: center;
+    padding-right: var(--l);
     img{
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover;
     }
   }
   .productDetails{
@@ -141,8 +139,8 @@
         transition: transform 0.3s ease-in-out;
         margin-right: var(--l);
         .imgWrapper{
-          width: 100%;
-          height: 100%;
+          width: 80vh;
+          height: 80vh;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -226,7 +224,7 @@
     img.selected{
       outline: var(--2xs) solid var(--beigegelb);
       outline-offset: 0;
-      transform: translateX(var(--s))
+      /* transform: translateX(var(--s)) */
     }
   }
 }
@@ -238,4 +236,67 @@
   to{
     transform: translateX(var(--s));
   }
+}
+
+
+.product-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 6fr 2fr;
+  grid-template-rows: repeat(5, auto);
+  gap: var(--m);
+  padding: var(--m);
+  grid-template-areas:
+    "amount-icon amount-text amount-number"
+    "available-icon available-text available-number"
+    "lorry-icon lorry-text lorry-number"
+    "parcel-icon parcel-text parcel-number"
+    "total-text total-text total-number";
+}
+
+/* Grid items */
+.amount-icon { grid-area: amount-icon; }
+.amount-text { grid-area: amount-text; }
+.amount-number { grid-area: amount-number; }
+
+.available-icon { grid-area: available-icon; }
+.available-text { grid-area: available-text; }
+.available-number { grid-area: available-number; }
+
+.lorry-icon { grid-area: lorry-icon; }
+.lorry-text { grid-area: lorry-text; }
+.lorry-number { grid-area: lorry-number; }
+
+.parcel-icon { grid-area: parcel-icon; }
+.parcel-text { grid-area: parcel-text; }
+.parcel-number { grid-area: parcel-number; }
+
+.total-text { grid-area: total-text; }
+.total-number { grid-area: total-number; }
+
+/* Styling for the grid items */
+[class$="-icon"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: var(--m);
+  width: 50%
+}
+
+[class$="-text"]:not(.total-text) {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  color: silver;
+  font-size: var(--m);
+  width: 100%
+}
+
+[class$="-number"] {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: black;
+  font-size: var(--m);
+  width: 100%
 }
