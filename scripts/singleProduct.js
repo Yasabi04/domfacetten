@@ -116,15 +116,15 @@ document.addEventListener("DOMContentLoaded", () => {
             const productsHTML = productToShow.map(product => `
                 <section class="singleProduct">
                 <ul class = "images">
-                    <li id = "1"><img src="./images/products/ABRotWeiß_1.jpg" alt="Test"></li>
-                    <li id = "2"><img src="./images/products/ABRotWeiß_1.jpg" alt="Test"></li>
-                    <li id = "3"><img src="./images/products/ABRotWeiß_1.jpg" alt="Test"></li>
+                    <li class  = "miniImage" id = "1"><img src="./images/products/ABRotWeiß_1.jpg" alt="Test"></li>
+                    <li class  = "miniImage" id = "2"><img src="./images/products/ABRotWeiß_1.jpg" alt="Test"></li>
+                    <li class  = "miniImage" id = "3"><img src="./images/products/ABRotWeiß_1.jpg" alt="Test"></li>
                 </ul>
                     <div class = "image-wrapper"
                     data-foto="${product.foto}"
                     data-available="${product.Available}"
                     >
-                        <p>
+                        <p class = "productImage">
                         ${
                             product.available === 'false'
                             ? '<img class="test" src="' + product.foto + '" style="filter: grayscale(100%);" alt="Produktbild">'
@@ -199,4 +199,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
     displayWantedProduct();
+    presentNewImage();
 });
+
+
+function presentNewImage(){
+    document.querySelectorAll('.miniImage').forEach(image => {
+        image.addEventListener('click', () => {
+            const productImage = document.querySelector('.productImage img');
+            productImage.src = image.querySelector('img').src;
+        });
+    });
+}
