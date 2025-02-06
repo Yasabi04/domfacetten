@@ -1,11 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
     const url = new URL(window.location.href);
     const artnr = url.searchParams.get('artnr');
-    const JSONdata = './scripts/products.json';
+    const JSONdata = './scripts/products/products.json';
     fetch(JSONdata)
         .then(response => response.json())
         .then(data => {
-            const product = data.products.find(product => product.artnr === artnr);
+            console.log('ArtNr:', artnr);
+            let product; // Declare product outside if/else block
+            if(artnr[0] === 'S'){
+                product = data.specialProducts.find(p => p.artnr === artnr);
+            } else {
+                product = data.products.find(p => p.artnr === artnr);
+            }
+
+            if (!product) {
+                throw new Error('Product not found');
+            }
             const productContainer = document.querySelector('.container');
             productContainer.innerHTML = `
                 <section class="singleProduct">
