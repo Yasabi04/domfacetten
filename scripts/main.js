@@ -54,6 +54,7 @@ document.querySelector('.burger').addEventListener('click', () => {
     const burgerPatties = document.querySelector('.burger');
     if(!aside.classList.contains('open')) {
         aside.style.transform = 'translateX(-176px)';
+        aside.style.transition = 'transform 0.3s';
         aside.classList.add('open');
         burgerPatties.innerHTML = '<i class="fa-solid fa-x"></i>';
         return;

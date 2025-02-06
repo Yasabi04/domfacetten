@@ -69,13 +69,14 @@ aside{
     display: none;
 }
 
+
+
 @media screen and (max-width: 768px){
     aside{
         display: block;
         position: fixed;
         top: var(--xxl);
-        right: -180px;
-        transition: transform 0.3s ease-in-out;
+        right: -181px;
         .placeholder{
             height: 100%;
             width: 100%;
@@ -118,12 +119,5 @@ aside{
                 }
             }
         }
-    }
-    
-    aside.open{
-        animation: slideRight 0.3s ease-in-out;
-    }
-    aside.closed{
-        animation: slideLeft 0.3s ease-in-out;
     }
 }

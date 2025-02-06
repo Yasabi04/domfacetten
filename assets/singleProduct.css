@@ -173,7 +173,7 @@
 }
 
 .rightArrow:hover, .leftArrow:hover{
-  opacity: 1;;
+  opacity: 1;
 }
 
 @media (max-width: 1080px) {
