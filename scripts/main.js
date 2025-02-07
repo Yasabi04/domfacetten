@@ -56,7 +56,7 @@ document.querySelector('.burger').addEventListener('click', () => {
         aside.style.transform = 'translateX(-176px)';
         aside.style.transition = 'transform 0.3s';
         aside.classList.add('open');
-        burgerPatties.innerHTML = '<i class="fa-solid fa-x"></i>';
+        burgerPatties.innerHTML = '<i class="fa-solid fa-xmark"></i>';
         return;
     }
     else {
