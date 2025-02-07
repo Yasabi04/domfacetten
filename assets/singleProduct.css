@@ -309,3 +309,12 @@
   height: 1px;
   display: ruby
 }
+
+.test:hover{
+  
+  cursor: url('/images/cursors/plus-white.png'), auto;
+}
+
+.test.zoomed:hover{
+  cursor: url('/images/cursors/minus-white.png'), auto;
+}

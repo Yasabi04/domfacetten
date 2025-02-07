@@ -28,8 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         <p class = "productImage">
                         ${
                             product.available === false
-                            ? '<img class="test" src="' + product.images[0] + '" style="filter: grayscale(100%);" alt="Produktbild">'
-                                : '<img class="test" src="' + product.images[0] + '" alt="Produktbild">'
+                            ? '<img class="test normal" src="' + product.images[0] + '" style="filter: grayscale(100%);" alt="Produktbild">'
+                                : '<img class="test normal" src="' + product.images[0] + '" alt="Produktbild">'
                         }
                         </p>
                     </div>
@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </section>
             `;
             presentNewImage();
+            zoom()
         })
 });
 
@@ -80,4 +81,50 @@ function presentNewImage(){
             img.classList.add("selected")
         })
     })
+}
+
+
+function zoom(){
+    const image = document.querySelector('.test');
+    const wrapper = document.querySelector('.image-wrapper');
+    
+    wrapper.style.overflow = 'hidden';
+    wrapper.style.position = 'relative';
+    
+    image.addEventListener('click', () => {
+        image.classList.toggle('zoomed');
+        const rect = image.getBoundingClientRect();
+        const offsetX = event.clientX - rect.left;
+        const offsetY = event.clientY - rect.top;
+        const zoomFactor = 2.5;
+
+        if (image.classList.contains('zoomed')) {
+            image.style.position = 'relative';
+            image.style.transformOrigin = `${offsetX}px ${offsetY}px`;
+            image.style.transform = `scale(${zoomFactor})`;
+            wrapper.style.overflow = 'hidden';
+        } else {
+            image.style.position = 'static';
+            image.style.transform = 'none';
+        }
+    });
+
+    // Add mouse move handling when zoomed
+    image.addEventListener('mousemove', (event) => {
+        if (image.classList.contains('zoomed')) {
+            const rect = wrapper.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            
+            // Calculate boundaries
+            const maxX = wrapper.offsetWidth * (zoomFactor - 1);
+            const maxY = wrapper.offsetHeight * (zoomFactor - 1);
+            
+            // Constrain movement
+            const moveX = Math.max(0, Math.min(maxX, x * zoomFactor));
+            const moveY = Math.max(0, Math.min(maxY, y * zoomFactor));
+            
+            image.style.transform = `translate(-${moveX}px, -${moveY}px) scale(${zoomFactor})`;
+        }
+    });
 }
