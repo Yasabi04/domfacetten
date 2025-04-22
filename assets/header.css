@@ -76,7 +76,9 @@ aside{
         .navList {
             /* Reset display for the list itself */
             display: flex;
-            justify-content: flex-end;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
             
             /* Hide all list items */
             li {
@@ -86,6 +88,12 @@ aside{
             /* Show only the first list item */
             li:first-child {
                 display: flex;
+                justify-content: center;
+                align-items: center;
+                img{
+                    max-height: 100%;
+                    width: auto;
+                }
             }
         }
     }

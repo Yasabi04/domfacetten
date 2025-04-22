@@ -116,19 +116,34 @@
   }
 
   .product-wrapper {
-    grid-template-columns: auto 1fr auto;
     gap: var(--s);
     padding: var(--s);
     
     [class$="-icon"] {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 30px;
       font-size: var(--m);
     }
     
     [class$="-text"] {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding-right: var(--s);
       font-size: var(--m);
     }
     
     [class$="-number"] {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      white-space: wrap;
+      min-width: max-content;
       font-size: var(--m);
     }
   }
@@ -402,7 +417,7 @@
 .divisor{
   background-color: var(--complBeigegelb);
   height: 1px;
-  display: ruby
+  display: ruby;
 }
 
 .test:hover{
