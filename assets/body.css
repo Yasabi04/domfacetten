@@ -1,54 +1,117 @@
-body{
-    background-image: url(../images/braceletWrist.png);
-    margin: 0;
+main{
     padding: 0;
-    background-size: cover;  /* Skaliert das Bild, damit es den gesamten Bereich ausfüllt */
-    background-position: center;  /* Zentriert das Bild */
-    background-repeat: no-repeat; /* Verhindert, dass das Bild wiederholt wird */
-    height: 100vh;
-
-    /* Schatten kommt von der rechten Seite des Bildes und hört bei 50% des Bildes auf */
-    box-shadow: inset 40vw 0 10rem rgba(0, 0, 0, 0.7); 
+    margin: 0;
 }
 
+.index-welcome {
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--complBeigegelb);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 2px;
+    grid-template-areas:
+        "cologne-text empty1 empty"
+        "empty3 domfacetten empty4"
+        "empty5 empty6 button-container";
+}
 
+.index-welcome > div {
+    background-color: white;
+}
 
-.greetingText{
-    color: whitesmoke;
-    padding: 10%;
-    max-width: 35vw;
-    h1{
-        padding: 0;
-        font-size: var(--xl);
-        margin-bottom: var(--m);
-    }
-    p{
-        padding: 0;
-        margin-bottom: var(--l);
-    }
-    a{
-        padding: var(--s);
-        border: none;
-        border-radius: var(--s);
-        font-size: var(--m);
-        cursor: pointer;
-    }
-    #b1{
-        background-color: var(--complBeigegelb);
-        color: whitesmoke;
-        border: var(--complBeigegelb) 2px solid;
-    }
-    #b2{
-        background-color: transparent;
-        color: grey;
-        border: var(--complBeigegelb) 2px solid;
-    }
-    .firstNav{
-        display: flex;
-        align-items: center;
+.empty {
+    background-color: white;
+}
+.cologne-text, .domfacetten{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 100;
+}
+
+.cologne-text {
+    grid-area: cologne-text;
+    font-size: 10rem;
+}
+.domfacetten {
+    grid-area: domfacetten;
+    font-size: 10rem;
+    text-align: center;
+}
+.button-container {
+    grid-area: button-container;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-direction: column;
+    .cta-button {
         a{
-            margin-left: var(--m);
+            color: black;
+        }
+        border-top: 2px solid var(--complBeigegelb);
+        border-bottom: 2px solid var(--complBeigegelb);
+        font-size: 2rem;
+        padding: 1rem 2rem;
+        cursor: pointer;
+        text-align: center;
+    }
+    .cta-button:hover {
+        background-color: var(--beigegelb);
+        border: 2px solid var(--beigegelb);
+        a{
+            color: white;
         }
     }
 }
 
+@media (max-width: 768px) {
+    .index-welcome {
+        height: 100vh;
+        width: 100vw;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 1px;
+        grid-template-areas:
+            "cologne-text empty1"
+            "domfacetten domfacetten"
+            "empty3 button-container";
+        ;
+    }
+    .cologne-text {
+        grid-area: cologne-text;
+        font-size: 1rem;
+        height: 100%;
+    }
+    .domfacetten {
+        grid-area: domfacetten;
+        font-size: 1rem;
+        text-align: center;
+    }
+    .button-container {
+        grid-area: button-container;
+        display: flex;
+        justify-content: center;
+        gap: 0.25rem;
+        flex-direction: column;
+        .cta-button {
+            a{
+                color: black;
+            }
+            border-top: 1px solid var(--complBeigegelb);
+            border-bottom: 1px solid var(--complBeigegelb);
+            font-size: 2rem;
+            cursor: pointer;
+            text-align: center;
+        }
+        .cta-button:hover {
+            background-color: var(--beigegelb);
+            border: 2px solid var(--beigegelb);
+            a{
+                color: white;
+            }
+        }
+    }
+}
+      
