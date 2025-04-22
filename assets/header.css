@@ -72,6 +72,23 @@ aside{
 
 
 @media screen and (max-width: 768px){
+    .mainNavBar {
+        .navList {
+            /* Reset display for the list itself */
+            display: flex;
+            justify-content: flex-end;
+            
+            /* Hide all list items */
+            li {
+                display: none;
+            }
+            
+            /* Show only the first list item */
+            li:first-child {
+                display: flex;
+            }
+        }
+    }
     aside{
         display: block;
         position: fixed;
@@ -97,7 +114,8 @@ aside{
                 border-top-left-radius: var(--m);
                 border-bottom-left-radius: var(--m);
                 color: var(--beigegelb);
-                background-color: var(--complBeigegelb);
+                background-color: transparent;
+                backdrop-filter: blur(30px);
             }
             .mobileViewHeaderContent{
                 background-color: var(--complBeigegelb);
