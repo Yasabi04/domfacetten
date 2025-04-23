@@ -4,7 +4,7 @@ main{
 }
 
 .index-welcome {
-    height: 100dvh;
+    height: 100vh;
     width: 100vw;
     background-color: var(--complBeigegelb);
     display: grid;
@@ -12,59 +12,63 @@ main{
     grid-template-rows: repeat(3, 1fr);
     gap: 2px;
     grid-template-areas:
-        "cologne-text empty1 empty"
-        "empty3 domfacetten empty4"
-        "empty5 empty6 button-container";
+        "empty1 empty2 empty3"
+        "domfacetten domfacetten domfacetten"
+        "contact-btn empty4 products-btn"
+    ;
 }
 
 .index-welcome > div {
+    height: 100%;
+    width: 100%;
     background-color: white;
-}
-
-.empty {
-    background-color: white;
-}
-.cologne-text, .domfacetten{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: 100;
 }
 
-.cologne-text {
-    grid-area: cologne-text;
-    font-size: 10rem;
+.empty1{
+    grid-area: empty1;
+    background-color: white;
 }
-.domfacetten {
+.empty2{
+    grid-area: empty2;
+    background-color: white;
+}
+.empty3{
+    grid-area: empty3;
+    background-color: white;
+}
+.empty4{
+    grid-area: empty4;
+    background-color: white;
+}
+
+.domfacetten{
     grid-area: domfacetten;
-    font-size: 10rem;
-    text-align: center;
-}
-.button-container {
-    grid-area: button-container;
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    flex-direction: column;
-    .cta-button {
-        a{
-            color: black;
-        }
-        border-top: 2px solid var(--complBeigegelb);
-        border-bottom: 2px solid var(--complBeigegelb);
-        font-size: 2rem;
-        padding: 1rem 2rem;
-        cursor: pointer;
-        text-align: center;
-    }
-    .cta-button:hover {
-        background-color: var(--beigegelb);
-        border: 2px solid var(--beigegelb);
-        a{
-            color: white;
-        }
+    img{
+        scale: 1.8;
     }
 }
+
+.contact-btn{
+    grid-area: contact-btn;
+    a{
+        color: black;
+        font-size: 3rem;
+    }
+}
+
+.products-btn{
+    grid-area: products-btn;
+    a{
+        color: black;
+        font-size: 3rem;
+    }
+}
+
+
+
 
 @media (max-width: 768px) {
     .index-welcome {
