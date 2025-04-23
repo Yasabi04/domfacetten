@@ -71,47 +71,41 @@ main{
         height: 100vh;
         width: 100vw;
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
         gap: 1px;
         grid-template-areas:
-            "cologne-text empty1"
             "domfacetten domfacetten"
-            "empty3 button-container";
+            "domfacetten domfacetten"
+            "cologne-text products-btn"
+            "cologne-text contact-btn"
         ;
+    }
+    .index-welcome > div {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Rufina', serif;
+        a{
+            color: black;
+            font-family: 'Rufina', serif;
+        }
     }
     .cologne-text {
         grid-area: cologne-text;
-        font-size: 1rem;
-        height: 100%;
+        font-size: 4rem;
     }
     .domfacetten {
         grid-area: domfacetten;
-        font-size: 1rem;
-        text-align: center;
     }
-    .button-container {
-        grid-area: button-container;
-        display: flex;
-        justify-content: center;
-        gap: 0.25rem;
-        flex-direction: column;
-        .cta-button {
-            a{
-                color: black;
-            }
-            border-top: 1px solid var(--complBeigegelb);
-            border-bottom: 1px solid var(--complBeigegelb);
-            font-size: 2rem;
-            cursor: pointer;
-            text-align: center;
-        }
-        .cta-button:hover {
-            background-color: var(--beigegelb);
-            border: 2px solid var(--beigegelb);
-            a{
-                color: white;
-            }
-        }
+    .products-btn{
+        grid-area: products-btn;
+        font-size: 2rem;
+    }
+    .contact-btn{
+        grid-area: contact-btn;
+        font-size: 2rem;
     }
 }
       

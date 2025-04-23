@@ -116,18 +116,21 @@ aside{
                 position: absolute;
                 top: 0;
                 right: 100%;
+                z-index: 3;
                 font-size: var(--l);
                 padding: var(--s);
-                border: 2px solid var(--beigegelb);
+                border: 1px solid var(--beigegelb);
+                border-right: none;
                 border-top-left-radius: var(--m);
                 border-bottom-left-radius: var(--m);
                 color: var(--beigegelb);
-                background-color: transparent;
+                background-color: rgba(0, 0, 0, 0.15);
                 backdrop-filter: blur(30px);
             }
             .mobileViewHeaderContent{
-                background-color: var(--complBeigegelb);
-                border: 2px solid var(--beigegelb);
+                background-color: rgba(0, 0, 0, 0.15);
+                backdrop-filter: blur(40px);
+                border: 1px solid var(--beigegelb);
                 border-bottom-left-radius: var(--m);
                 ul{
                     list-style-type: none;
