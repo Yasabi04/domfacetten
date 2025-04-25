@@ -1,33 +1,35 @@
-document.querySelector('.searchSymbol').addEventListener('click', () => {
-    // Erstelle das Input-Feld dynamisch
-    const input = document.createElement('input');
-    input.id = "inputSearchField"
-    input.type = 'text';
-    input.placeholder = 'Suche';
+document.querySelectorAll('.searchSymbol').forEach((searchSymbol) => {
+    searchSymbol.addEventListener('click', () => {
+        // Erstelle das Input-Feld dynamisch
+        const input = document.createElement('input');
+        input.id = "inputSearchField"
+        input.type = 'text';
+        input.placeholder = 'Suche';
 
-    // Finde das Listenelement mit der Suchlupe
-    const searchIcon = document.querySelector('.searchSymbol');
-    //Mit parentNode wird das Elternelement von searchSymbols gesucht und gefunden
-    const parentLi = searchIcon.parentNode;
+        // Finde das Listenelement mit der Suchlupe
+        const searchIcon = searchSymbol
+        //Mit parentNode wird das Elternelement von searchSymbols gesucht und gefunden
+        const parentLi = searchIcon.parentNode;
 
-    parentLi.replaceChild(input, searchIcon);
-    input.focus();
+        parentLi.replaceChild(input, searchIcon);
+        input.focus();
 
-    // Optional: Wenn der Benutzer aus dem Input-Feld herausklickt, wieder zur Lupe wechseln
-    input.addEventListener('blur', function() {
-        parentLi.replaceChild(searchIcon, input);
-    });
-    inputSearchField.addEventListener('input', function() {
-        const searchValue = inputSearchField.value.toLowerCase();
-        const products = document.querySelectorAll('.temp-product');
+        // Optional: Wenn der Benutzer aus dem Input-Feld herausklickt, wieder zur Lupe wechseln
+        input.addEventListener('blur', function() {
+            parentLi.replaceChild(searchIcon, input);
+        });
+        inputSearchField.addEventListener('input', function() {
+            const searchValue = inputSearchField.value.toLowerCase();
+            const products = document.querySelectorAll('.temp-product');
 
-        products.forEach(product => {
-            const productName = product.querySelector('h2').textContent.toLowerCase();
-            if (productName.includes(searchValue)) {
-                product.style.display = 'block';
-            } else {
-                product.style.display = 'none';
-            }
+            products.forEach(product => {
+                const productName = product.querySelector('h2').textContent.toLowerCase();
+                if (productName.includes(searchValue)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
         });
     });
 });

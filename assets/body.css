@@ -103,7 +103,7 @@ main{
     .domfacetten {
         grid-area: domfacetten;
         img{
-            scale: 1
+            scale: 1;
         }
     }
     .products-btn{
