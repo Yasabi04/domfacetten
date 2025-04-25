@@ -80,8 +80,8 @@ main{
         grid-template-areas:
             "domfacetten domfacetten"
             "domfacetten domfacetten"
-            "cologne-text products-btn"
-            "cologne-text contact-btn"
+            "products-btn products-btn"
+            "contact-btn contact-btn"
         ;
     }
     .index-welcome > div {
@@ -102,6 +102,9 @@ main{
     }
     .domfacetten {
         grid-area: domfacetten;
+        img{
+            scale: 1
+        }
     }
     .products-btn{
         grid-area: products-btn;
