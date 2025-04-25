@@ -1,13 +1,6 @@
 {
     "specialProducts": [
-        {
-            "images": ["images/products/sacha-baron-cohen-borat-2.jpg", "images/products/ABRotWeiß_2.jpg", "images/products/ABRotWeiß_3.jpg", "images/products/ABRotWeiß_4.jpg"],
-            "artnr": "S001",
-            "name": "Stoffarmband",
-            "color": "rot-weiß",
-            "price": 19.99,
-            "available": true
-        }
+        
     ],
     "products": [
         {
@@ -15,15 +8,15 @@
             "artnr": "A001",
             "name": "Stoffarmband",
             "color": "rot-weiß",
-            "price": 19.99,
+            "price": 5,
             "available": true
         },
         {
-            "images": ["images/products/ABRotWeiß_1.jpg", "images/products/ABRotWeiß_1.jpg", "images/products/ABRotWeiß_3.jpg", "images/products/ABRotWeiß_2.jpg"],
+            "images": ["images/products/ArmbandGold.jpg", "images/products/ArmbandGold.jpg", "images/products/ABRotWeiß_3.jpg", "images/products/ABRotWeiß_2.jpg"],
             "artnr": "A002",
-            "name": "Stoffarmband",
+            "name": "Armband Barren",
             "color": "schwarz",
-            "price": 19.99,
+            "price": 21,
             "available": true
         }
     ]

@@ -48,10 +48,10 @@ document.addEventListener('DOMContentLoaded', () => {
                             <div class = "amount-number">${product.price} &euro;</div>
                             <div class = "available-number"><i class="fa-solid fa-check"></i></div>
                             <div class = "lorry-number">3-5 Tage</div>
-                            <div class = "parcel-number">1.00 &euro;</div>
+                            <div class = "parcel-number">1.80 &euro;</div>
                             <div class = "divisor"><hr></div>
                             <div class = "total-text">Gesamt</div>
-                            <div class = "total-number">${product.price + 1}</div>
+                            <div class = "total-number">${product.price + 1.8}0 &euro;</div>
                         </div>
                         
                         <!--Paypal Button hierhin-->
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <input type="hidden" name="currency_code" value="EUR" />
                             <input type="image" src="https://www.paypalobjects.com/de_DE/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" title="PayPal – Einfacher und sicherer online bezahlen." alt="Jetzt kaufen" />
                         </form> -->
-                        <div class = "buy">Jetzt mit Paypal kaufen!</div>
+                        <div class = "buy">Bald kann der Artikel online gekauft werden!</div>
                     </div>
                 </section>
             `;
