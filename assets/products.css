@@ -324,15 +324,14 @@
 
 .temp-product{
     font-family: 'Helvetica', sans-serif;
-    width: 330px;
+    width: 20vw;
     height: auto;
     background-color: white;
     position: relative;
-    box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.5);
     .temp-image-container{
         width: 100%;
-        height: 70%;
-        /*Bild soll an Breite des Containers angepasst werden*/
+        aspect-ratio: 1/1;
         img{
             width: 100%;
             height: 100%;
@@ -371,19 +370,11 @@
 
 
 /*Testphase*/
-@media screen and (min-width: 768px){
+@media screen and (max-width: 768px){
     .temp-product{
-        height: 70vh;
-        .temp-image-container{
-            height: 70%;
-            img{
-                height: 100%;
-            }
-        }
+        width: 80vw;
     }
 }
-
-
 
 .temp-product:hover{
     transition: 0.5s ease;

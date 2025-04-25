@@ -1,5 +1,7 @@
 footer{
-    background-color: var(--complBeigegelb);
+    border-top: 1px solid var(--beigegelb);
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+    background-color: white;
     nav{
         hr{
             border: 1px solid var(--beigegelb);
@@ -18,11 +20,11 @@ footer{
         margin-left: var(--m);
         a{
             text-decoration: none;
-            color: white;
+            color: black;
             font-size: var(--m);
         }
         i{
-            color: white;
+            color: black;
             padding-right: var(--m);
             font-size: var(--m);
         }
@@ -34,7 +36,7 @@ footer{
     justify-content: center;
     align-items: first baseline;
     flex-direction: row;
-    color: white;
+    color: black;
 }
 
 .socials a{

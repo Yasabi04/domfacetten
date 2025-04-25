@@ -13,11 +13,6 @@
   }
 } */
 
-.autoFadeIn {
-  animation: autoFadeIn;
-  animation-timeline: view();
-}
-
 @keyframes autoFadeIn {
   0% {
     opacity: 0.3;

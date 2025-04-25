@@ -25,7 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
                   </section>`
       ).join('');
 
-      const specialProductsHTML = data.specialProducts.map(product => `
+      if(data.specialProducts.length === 0) {
+        specialProductConatiner.style.display = 'none';
+      }
+      else{
+        const specialProductsHTML = data.specialProducts.map(product => `
                   <section class="temp-product special">
                       <a href="singleProduct.html?artnr=${product.artnr}">
                           <div class="temp-image-container">
@@ -39,9 +43,13 @@ document.addEventListener('DOMContentLoaded', () => {
                       </a>
                       <span class="temp-star" role="button" tabindex="0"><i class="fa-solid fa-star"></i></span>
                   </section>`
-      ).join('');
+        ).join('');
+
+        specialProductConatiner.innerHTML = specialProductsHTML;
+      }
       
-      specialProductConatiner.innerHTML = specialProductsHTML;
+      
+    
       productConatiner.innerHTML = productsHTML;
     })
     .catch(error => {
