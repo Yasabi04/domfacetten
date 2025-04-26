@@ -316,7 +316,7 @@
   width: 60vw;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--m);
+  gap: var(--s);
 }
 
 a{
@@ -339,6 +339,16 @@ a{
     .sim-name, .sim-artnr, .sim-price{
       padding: calc(var(--s)/2);
       padding-left: var(--s);
+      font-size: var(--m);
+    }
+    .sim-name{
+      font-weight: 600;
+    }
+    .sim-artnr{
+      font-size: var(--s);
+    }
+    .sim-price{
+      font-weight: 600;
       font-size: var(--m);
     }
   }
