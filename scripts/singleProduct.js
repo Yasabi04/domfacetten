@@ -128,3 +128,39 @@ function zoom(){
         }
     });
 }
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const similarProductsContainer = document.querySelector('.sim-container');
+    const JSONdata = './scripts/products/products.json';
+    
+    fetch(JSONdata)
+        .then(response => response.json())
+        .then(data => {
+            // Get all products
+            const allProducts = [...data.products, ...data.specialProducts];
+            // Shuffle and slice
+            const shuffledProducts = allProducts.sort(() => 0.5 - Math.random()).slice(0, 4);
+            
+            // Create HTML for all products
+            const productsHTML = shuffledProducts.map(product => `
+                <a href="singleProduct.html?artnr=${product.artnr}">
+                    <div class="sim-product">
+                        <div class="sim-img-container">
+                            <img src="${product.images[0]}" alt="${product.name}">
+                        </div>
+                        <p class="sim-name">${product.name}</p>
+                        <p class="sim-artnr">${product.artnr}</p>
+                        <p class="sim-price">${product.price}€</p>
+                    </div>
+                </a>
+            `).join('');
+            
+            // Set container content
+            similarProductsContainer.innerHTML = productsHTML;
+        })
+        .catch(error => {
+            console.error('Error loading similar products:', error);
+            similarProductsContainer.innerHTML = '<p>Ähnliche Produkte konnten nicht geladen werden</p>';
+        });
+});
