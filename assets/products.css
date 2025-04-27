@@ -51,6 +51,11 @@
     flex-direction: column;
     align-items: center;
     min-height: 70vh;
+    width: 90%;
+    .temp-product{
+        animation: fadeIn 0.5s ease-in-out;
+        margin: var(--m);
+    }
     .welcomeBanner{
         margin-top : calc(var(--xl)*2);
         display: block;
@@ -61,7 +66,6 @@
         position: relative;
         img{
             width: 100%;
-            /*Es soll nur die Hälfte des Bildes in der Höhe gezeigt werden*/
             height: 100%;
             object-fit: cover;
             object-position: center;
@@ -79,7 +83,7 @@
             width: 100%;
             color: white;
         }
-    }
+    } 
     h1{
         padding-top: var(--xl);
         text-align: center;
