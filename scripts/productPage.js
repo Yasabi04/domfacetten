@@ -17,11 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
                           </div>
                           <div class="temp-product-text">
                               <h2>${product.name}</h2>
-                              <p class="temp-colour">${product.artnr}</p>
+                              <p class="temp-artnr">${product.artnr}</p>
                               <p class="temp-price">${product.price}€</p>
                           </div>
                       </a>
-                      <span class="temp-star" role="button" tabindex="0"><i class="fa-solid fa-star"></i></span>
+                      <span class="temp-star" role="button" tabindex="0"><i class="fa-regular fa-star"></i></span>
                   </section>`
       ).join('');
 
