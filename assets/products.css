@@ -51,7 +51,7 @@
     flex-direction: column;
     align-items: center;
     min-height: 70vh;
-    width: 90%;
+    width: 100%;
     .temp-product{
         animation: fadeIn 0.5s ease-in-out;
         margin: var(--m);
@@ -69,7 +69,6 @@
             height: 100%;
             object-fit: cover;
             object-position: center;
-            transform: scale(1.04);
             filter: brightness(0.5);
         }
         span{
