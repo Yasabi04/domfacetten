@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Überprüfen, ob gespeicherte Produkte vorhanden sind
     if(savedProducts.length === 0) {
-        container.innerHTML = '<h1>Keine Produkte gespeichert.</h1>';
+        container.innerHTML = '<h1 class = "headline-one">Keine Produkte gespeichert.</h1>';
         return;
     }
     

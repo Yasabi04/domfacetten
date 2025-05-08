@@ -34,6 +34,13 @@
     z-index: 1;
 }
 
+@media screen and (max-width: 768px){
+    #product-container{
+        gap: 20px; /* Abstand zwischen den Karten */
+        padding: 10px; /* Etwas Pufferraum */
+    }
+}
+
 @keyframes fadeIn{
     from{
         opacity: 0;

@@ -143,12 +143,12 @@
       white-space: wrap;
       min-width: max-content;
       font-size: var(--m);
+      font-size: var(--m);
     }
   }
 
   .simWrapper {
-    margin: var(--m) 0;
-    
+    margin: var(--m);
     h2 {
       font-size: var(--m);
       padding-bottom: var(--s);
@@ -274,6 +274,17 @@
   width: 100%
 }
 
+@media screen and (max-width: 768px) {
+  [class$="-text"]:not(.total-text) {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    color: black;
+    font-size: calc(var(--m)/1.15);
+    width: 100%
+  }
+}
+
 [class$="-number"] {
   display: flex;
   justify-content: flex-end;
@@ -377,7 +388,7 @@ a{
 
 @media (max-width: 600px) {
   .sim-container {
-    width: 95vw;
+    width: 85vw;
     grid-template-columns: 1fr;
   }
 }
